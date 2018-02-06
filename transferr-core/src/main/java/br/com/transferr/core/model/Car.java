@@ -1,4 +1,4 @@
-package br.com.transferr.model;
+package br.com.transferr.core.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-import br.com.transferr.enums.EnumStatus;
+import br.com.transferr.core.enums.EnumStatus;
 
 @Entity
 @Table(name="Car")

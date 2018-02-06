@@ -1,4 +1,4 @@
-package br.com.transferr.model;
+package br.com.transferr.core.model;
 
 import java.io.Serializable;
 

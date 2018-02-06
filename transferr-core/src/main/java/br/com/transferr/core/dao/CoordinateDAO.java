@@ -1,8 +1,8 @@
-package br.com.transferr.dao;
+package br.com.transferr.core.dao;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.transferr.model.Coordinate;
+import br.com.transferr.core.model.Coordinate;
 
 
 

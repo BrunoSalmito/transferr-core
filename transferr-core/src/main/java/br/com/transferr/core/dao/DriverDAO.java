@@ -1,10 +1,10 @@
-package br.com.transferr.dao;
+package br.com.transferr.core.dao;
 
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.transferr.model.Driver;
+import br.com.transferr.core.model.Driver;
 
 
 

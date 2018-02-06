@@ -1,4 +1,4 @@
-package br.com.transferr.enums;
+package br.com.transferr.core.enums;
 
 public enum EnumStatus {
 

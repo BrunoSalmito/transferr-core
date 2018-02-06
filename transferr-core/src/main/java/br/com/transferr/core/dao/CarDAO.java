@@ -1,8 +1,8 @@
-package br.com.transferr.dao;
+package br.com.transferr.core.dao;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.transferr.model.Car;
+import br.com.transferr.core.model.Car;
 
 @Repository
 public class CarDAO extends SuperClassDAO<Car> {
