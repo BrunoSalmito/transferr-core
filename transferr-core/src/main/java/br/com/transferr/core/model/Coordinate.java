@@ -10,6 +10,11 @@ import javax.persistence.Table;
 @Table(name="Coordinate")
 public class Coordinate  extends Entidade{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3580158683573139918L;
+
 	@Column(name = "latitude")
 	private Double latitude;
 	

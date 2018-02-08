@@ -30,7 +30,7 @@ public class Car  extends Entidade{
 	@JoinColumn(name = "ID_DRIVER",referencedColumnName="ID",nullable=true)
 	private Driver driver;
 	
-	@Column(name="TP_ANIMAL",nullable=false)
+	@Column(name="STATUS",nullable=false)
 	@Enumerated(EnumType.ORDINAL)
 	private EnumStatus status;
 
