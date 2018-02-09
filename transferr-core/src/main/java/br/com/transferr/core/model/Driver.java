@@ -19,7 +19,7 @@ public class Driver  extends Entidade{
 	private String countryRegister;
 
 	@Column(name = "birth_date")
-	private Date birthDate;
+	private Integer birthDate;
 
 	public String getName() {
 		return name;
@@ -37,11 +37,11 @@ public class Driver  extends Entidade{
 		this.countryRegister = countryRegister;
 	}
 
-	public Date getBirthDate() {
+	public Integer getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(Integer birthDate) {
 		this.birthDate = birthDate;
 	}
 
