@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.transferr.core.exceptions.ExceptionValidation;
+import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.model.Entidade;
 
 /*
@@ -36,10 +36,10 @@ import br.com.transferr.core.model.Entidade;
 public abstract class RoleSuperClass<T extends Entidade>{
 
 
-	public abstract T insert(T entidade)  throws ExceptionValidation ;
-	public abstract void delete(long codigo) throws ExceptionValidation  ;
-	public abstract T update(T entidade)  throws ExceptionValidation ;
-	public abstract T find(long codigo) throws ExceptionValidation  ;
+	public abstract T insert(T entidade)  throws ValidationException ;
+	public abstract void delete(long codigo) throws ValidationException  ;
+	public abstract T update(T entidade)  throws ValidationException ;
+	public abstract T find(long codigo) throws ValidationException  ;
 	
 	public RoleSuperClass() {
 		

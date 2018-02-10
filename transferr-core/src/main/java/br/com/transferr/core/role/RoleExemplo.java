@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.transferr.core.dao.DAOExemplo;
-import br.com.transferr.core.exceptions.ExceptionValidation;
+import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.model.Exemplo;
 
 
@@ -18,22 +18,22 @@ public class RoleExemplo extends RoleSuperClass<Exemplo> {
 	@Autowired
 	private DAOExemplo daoExemplo;
 	@Override
-	public Exemplo insert(Exemplo entidade) throws ExceptionValidation {
+	public Exemplo insert(Exemplo entidade) throws ValidationException {
 		return daoExemplo.insert(entidade);
 	}
 
 	@Override
-	public void delete(long codigo) throws ExceptionValidation {
+	public void delete(long codigo) throws ValidationException {
 		daoExemplo.delete(codigo);
 	}
 
 	@Override
-	public Exemplo update(Exemplo entidade) throws ExceptionValidation {
+	public Exemplo update(Exemplo entidade) throws ValidationException {
 		return daoExemplo.update(entidade);
 	}
 
 	@Override
-	public Exemplo find(long codigo) throws ExceptionValidation {
+	public Exemplo find(long codigo) throws ValidationException {
 		return daoExemplo.find(codigo);
 	}
 

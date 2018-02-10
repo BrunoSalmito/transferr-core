@@ -5,14 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.transferr.core.enums.EnumStatus;
 
+
+
+@NamedQueries({
+	@NamedQuery(name=Car.FIND_BY_DRIVER,query="FROM Car c WHERE c.ID_DRIVER = :idDriver")
+})
+
+
+
 @Entity
 @Table(name="Car")
 public class Car  extends Entidade{
+	
+	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByLogin";
 	
 	@Column(name = "model")
 	private String model;
