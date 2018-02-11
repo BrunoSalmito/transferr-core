@@ -23,7 +23,6 @@ public class CarDAO extends SuperClassDAO<Car> {
 
 	@Override
 	public Car find(long codigo) {
-		// TODO Auto-generated method stub
 		return manager.find(Car.class, codigo);
 	}
 

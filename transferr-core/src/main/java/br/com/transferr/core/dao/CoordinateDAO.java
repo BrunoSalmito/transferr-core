@@ -15,7 +15,6 @@ public class CoordinateDAO extends SuperClassDAO<Coordinate> {
 	
 		@Override
 	public Coordinate find(long codigo) {
-		// TODO Auto-generated method stub
 		return manager.find(Coordinate.class, codigo);
 	}
 		

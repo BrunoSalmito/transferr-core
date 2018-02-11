@@ -4,6 +4,8 @@ package br.com.transferr.core.role;
 public class RoleParametros {
 
 	
+	public static String paramPathRepoImagens = "";
+	
 	public RoleParametros() {
 		System.out.println(this.getClass().getName());
 	}

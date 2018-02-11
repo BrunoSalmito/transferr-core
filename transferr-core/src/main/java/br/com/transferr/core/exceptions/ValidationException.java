@@ -8,11 +8,9 @@ public class ValidationException extends Exception {
 	
 	private String campoErro="";// preencher sempre em camelCase exatamente igual o da entidade
 	public ValidationException(String message) {
-		// TODO Auto-generated constructor stub
 		super(message);
 	}
 	public ValidationException(String message,String campoErro) {
-		// TODO Auto-generated constructor stub
 		super(message);
 		this.campoErro=campoErro;
 	}
