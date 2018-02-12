@@ -2,16 +2,15 @@ package br.com.transferr.core.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @NamedQueries({
 	@NamedQuery(name=User.FIND_BY_LOGIN,query="FROM User u WHERE u.email = :email AND u.password = :password"),
-	@NamedQuery(name=User.FIND_BY_EMAIL,query="FROM Usuario u WHERE u.email = :email")
+	@NamedQuery(name=User.FIND_BY_EMAIL,query="FROM User u WHERE u.email = :email")
 })
 
 

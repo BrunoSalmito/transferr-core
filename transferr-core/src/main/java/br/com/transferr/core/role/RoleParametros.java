@@ -1,7 +1,11 @@
 package br.com.transferr.core.role;
 
+import org.springframework.stereotype.Service;
+import br.com.transferr.core.exceptions.ValidationException;
+import br.com.transferr.core.model.Parametro;
 
-public class RoleParametros {
+@Service
+public class RoleParametros extends RoleSuperClass<Parametro>{
 
 	
 	public static String paramPathRepoImagens = "";
@@ -59,6 +63,46 @@ public class RoleParametros {
 		}catch (Exception e) {
 			return "";
 		}
+	}
+
+
+
+
+
+	@Override
+	public Parametro insert(Parametro entidade) throws ValidationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+	@Override
+	public void delete(long codigo) throws ValidationException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public Parametro update(Parametro entidade) throws ValidationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+	@Override
+	public Parametro find(long codigo) throws ValidationException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

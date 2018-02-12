@@ -15,7 +15,7 @@ import br.com.transferr.core.enums.EnumStatus;
 
 
 @NamedQueries({
-	@NamedQuery(name=Car.FIND_BY_DRIVER,query="FROM Car c WHERE c.ID_DRIVER = :idDriver")
+	@NamedQuery(name=Car.FIND_BY_DRIVER,query="FROM Car c WHERE c.driver.id = :idDriver")
 })
 
 
@@ -24,7 +24,7 @@ import br.com.transferr.core.enums.EnumStatus;
 @Table(name="Car")
 public class Car  extends Entidade{
 	
-	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByLogin";
+	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
 	
 	@Column(name = "model")
 	private String model;

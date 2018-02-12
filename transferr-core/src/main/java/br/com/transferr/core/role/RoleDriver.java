@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.transferr.core.dao.DriverDAO;
 import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.util.HelperBase64;
 import br.com.transferr.core.util.HelperVariables;
 
+@Service
 public class RoleDriver  extends RoleSuperClass<Driver> {
 
 	
