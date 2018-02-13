@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 
 
 @Entity
-@Table(name="User")
+@Table(name="USUARIO")
 public class User  extends Entidade{
 	
 	@Transient
