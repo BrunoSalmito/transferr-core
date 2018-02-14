@@ -4,7 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +20,10 @@ public class Client  extends Entidade{
 
 	@Column(name = "birth_date")
 	private Date birthDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
+	private User user;
 
 	public String getName() {
 		return name;
@@ -42,6 +47,14 @@ public class Client  extends Entidade{
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	

@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -20,6 +22,11 @@ public class Driver  extends Entidade{
 
 	@Column(name = "birth_date")
 	private Integer birthDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
+	private User user;
+
 
 	public String getName() {
 		return name;
@@ -43,6 +50,14 @@ public class Driver  extends Entidade{
 
 	public void setBirthDate(Integer birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	

@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Coordinate")
+@Table(name="COORDINATE_CAR")
 public class Coordinate  extends Entidade{
 
 	/**
