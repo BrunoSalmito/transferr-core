@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="COORDINATE_CAR")
-public class Coordinate  extends Entidade{
+public class CoordinateCar  extends Entidade{
 
 	/**
 	 * 
