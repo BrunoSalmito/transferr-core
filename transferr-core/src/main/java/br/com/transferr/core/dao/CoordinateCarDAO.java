@@ -13,10 +13,12 @@ public class CoordinateCarDAO extends SuperClassDAO<CoordinateCar> {
 		 
 	}
 	
-		@Override
+	@Override
 	public CoordinateCar find(long codigo) {
 		return manager.find(CoordinateCar.class, codigo);
 	}
+	
+	
 		
 
 }
