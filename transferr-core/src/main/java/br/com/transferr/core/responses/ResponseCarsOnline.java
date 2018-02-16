@@ -15,8 +15,9 @@ import javax.persistence.SqlResultSetMapping;
 					@ColumnResult(name="placa"				,type=String.class),
 					@ColumnResult(name="cor"				,type=String.class),
 					@ColumnResult(name="name_driver"		,type=String.class),
-					@ColumnResult(name="longitude"			,type=Double.class),
-					@ColumnResult(name="latitude"			,type=Double.class)
+					@ColumnResult(name="latitude"			,type=Double.class),
+					@ColumnResult(name="longitude"			,type=Double.class)
+					
 			}
 		)	
 	)
