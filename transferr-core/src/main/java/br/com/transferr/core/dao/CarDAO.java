@@ -2,17 +2,15 @@ package br.com.transferr.core.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.metadata.CoordinatesAmplitude;
 import br.com.transferr.core.metadata.CoordinatesQuadrant;
 import br.com.transferr.core.model.Car;
-import br.com.transferr.core.model.User;
 import br.com.transferr.core.responses.ResponseCarsOnline;
 import br.com.transferr.core.util.CoordinatesUtil;
 
