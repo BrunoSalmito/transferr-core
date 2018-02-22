@@ -72,7 +72,20 @@ public class CarDAO extends SuperClassDAO<Car> {
 		}catch(NoResultException e){
 			return null;
 		}
-}
+	}
+	
+	public Car getCarByUser(Long idUser){
+		String jpql = "FROM Car WHERE driver.user.id = :idUser";
+		TypedQuery<Car> qry = getManager().createQuery(jpql, Car.class)
+				.setParameter("idUser", idUser);
+		try{
+			return qry.getSingleResult();
+		}catch(NoResultException e){
+			return null;
+		}
+	}
+	
+	
 	
 	
 

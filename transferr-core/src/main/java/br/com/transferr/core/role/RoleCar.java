@@ -46,7 +46,13 @@ public class RoleCar extends RoleSuperClass<Car> {
 		return carDAO.getCarByDriver(idDriver);
 	}
 	
-	
+	public Car getCarByUser(Long idUser) throws ValidationException{
+		Car carByUser = carDAO.getCarByUser(idUser);
+		if(carByUser == null){
+			throw new ValidationException("Usuário não está associado a nenhum carro.");
+		}
+		return carByUser;
+	}
 	
 	
 	public List<ResponseCarsOnline> getAvailableCars(CoordinatesQuadrant coordinates) {

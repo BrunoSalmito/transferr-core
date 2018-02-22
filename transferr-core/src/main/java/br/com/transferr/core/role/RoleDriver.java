@@ -65,6 +65,14 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 			file.mkdirs();
 		}
 		return file;
-}
+	}
+	
+	public Driver getDriverByCar(Long idCar) throws ValidationException {
+		Driver driver = driverDAO.getDriverByCar(idCar);
+		if(driver != null){
+			return driver;
+		}
+		throw new ValidationException("Nenum motorista encontrado para este Veículo.");
+	}
 	
 }
