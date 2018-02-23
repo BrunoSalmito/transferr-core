@@ -36,5 +36,10 @@ public class RoleCoordinateCar extends RoleSuperClass<CoordinateCar> {
 	public CoordinateCar find(long codigo) throws ValidationException {
 		return coordinateCarDao.find(codigo);
 	}
+	
+	public void updateCoordinateByCar(Long idCar, Double latitude, Double longitude) throws ValidationException {
+		 coordinateCarDao.updateCoordinateByCar(idCar, latitude, longitude);
+	}
+	
 
 }

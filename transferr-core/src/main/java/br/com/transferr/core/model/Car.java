@@ -26,6 +26,10 @@ public class Car  extends Entidade{
 	
 	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
 	
+	
+	@Column(name = "photo")
+	private String photo;
+	
 	@Column(name = "model")
 	private String model;
 	
@@ -92,6 +96,14 @@ public class Car  extends Entidade{
 
 	public void setStatus(EnumStatus status) {
 		this.status = status;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	

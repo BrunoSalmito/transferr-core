@@ -4,7 +4,7 @@ public class RequestCoordinatesUpdate {
 
 	private Double latitude;
 	private Double longitude;
-	private Integer idDriver;
+	private Integer idCar;
 	
 	public Double getLatitude() {
 		return latitude;
@@ -18,12 +18,13 @@ public class RequestCoordinatesUpdate {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
-	public Integer getIdDriver() {
-		return idDriver;
+	public Integer getIdCar() {
+		return idCar;
 	}
-	public void setIdDriver(Integer idDriver) {
-		this.idDriver = idDriver;
+	public void setIdCar(Integer idCar) {
+		this.idCar = idCar;
 	}
+	
 	
 	
 	

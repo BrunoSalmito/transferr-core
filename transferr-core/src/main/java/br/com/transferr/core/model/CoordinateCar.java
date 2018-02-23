@@ -1,5 +1,7 @@
 package br.com.transferr.core.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -20,8 +22,12 @@ public class CoordinateCar  extends Entidade{
 	
 	@Column(name = "longitude")
 	private Double longitude;
-
 	
+	
+	@Column(name = "DT_LAST_UPDATE")
+	private Date dtLastUpdate;
+
+
 	@ManyToOne
 	@JoinColumn(name = "ID_CAR" ,referencedColumnName="ID")
 	private Car car;
@@ -57,7 +63,14 @@ public class CoordinateCar  extends Entidade{
 	}
 
 
-	
+	public Date getDtLastUpdate() {
+		return dtLastUpdate;
+	}
+
+
+	public void setDtLastUpdate(Date dtLastUpdate) {
+		this.dtLastUpdate = dtLastUpdate;
+	}
 	
 	
 	
