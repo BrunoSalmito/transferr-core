@@ -8,7 +8,7 @@ import br.com.transferr.core.model.Parametro;
 public class RoleParametros extends RoleSuperClass<Parametro>{
 
 	
-	public static String paramPathRepoImagens = "";
+	public static String paramPathRepoImagens = ".";
 	
 	public RoleParametros() {
 		System.out.println(this.getClass().getName());
