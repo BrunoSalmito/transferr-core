@@ -51,6 +51,7 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 				try {
 					File file = checkAndCreateTheImagesServerRepository(idCar);
 					File fileImage = new File(file.getAbsolutePath()+File.separator+HelperVariables.DEFAULT_NAME_FOR_PHOTO);
+					System.out.println("Directory image file:"+fileImage.getAbsolutePath());
 					HelperBase64.toFile(base64Photo, fileImage);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -65,6 +66,14 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 			file.mkdirs();
 		}
 		return file;
-}
+	}
+	
+	public Driver getDriverByCar(Long idCar) throws ValidationException {
+		Driver driver = driverDAO.getDriverByCar(idCar);
+		if(driver != null){
+			return driver;
+		}
+		throw new ValidationException("Nenum motorista encontrado para este Veículo.");
+	}
 	
 }
