@@ -51,6 +51,7 @@ class SenderMail implements ISender {
 	public Session configure() throws MailException {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.user", getUserName());
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", getHostEmail());
 		props.put("mail.smtp.port", getSmtpPort());

@@ -20,7 +20,7 @@ public class RoleParametros extends RoleSuperClass<Parametro>{
 	
 	public int getPortHostEmail() {
 		try {
-			return 0;
+			return 587;
 		}catch (Exception e) {
 			return 0;
 		}
@@ -28,7 +28,7 @@ public class RoleParametros extends RoleSuperClass<Parametro>{
 	
 	public String getEnderecoEnvioEmail() {
 		try {
-			return "";
+			return "transferr.app@gmail.com";
 		}catch (Exception e) {
 			return "";
 		}
@@ -36,7 +36,7 @@ public class RoleParametros extends RoleSuperClass<Parametro>{
 	
 	public String getHostEmail() {
 		try {
-			return "";
+			return "smtp.gmail.com";
 		}catch (Exception e) {
 			return "";
 		}
@@ -44,7 +44,7 @@ public class RoleParametros extends RoleSuperClass<Parametro>{
 	
 	public String getSenhaEmail() {
 		try {
-			return "";
+			return "transferrapp";
 		}catch (Exception e) {
 			return "";
 		}
@@ -52,7 +52,7 @@ public class RoleParametros extends RoleSuperClass<Parametro>{
 	
 	public String getUsuarioEmail() {
 		try {
-			return "";
+			return "transferr.app@gmail.com";
 		}catch (Exception e) {
 			return "";
 		}
