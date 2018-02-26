@@ -41,5 +41,8 @@ public class RoleCoordinateCar extends RoleSuperClass<CoordinateCar> {
 		 coordinateCarDao.updateCoordinateByCar(idCar, latitude, longitude);
 	}
 	
+	public CoordinateCar findByCarId(Long carID) {
+		return coordinateCarDao.findByCarId(carID);
+	}
 
 }

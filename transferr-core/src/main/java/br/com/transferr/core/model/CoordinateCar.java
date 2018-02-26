@@ -6,12 +6,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+@NamedQueries({
+	@NamedQuery(name=CoordinateCar.FIND_BY_CAR,query="FROM CoordinateCar WHERE car.id = :idCar")
+})
 
 @Entity
 @Table(name="COORDINATE_CAR")
 public class CoordinateCar  extends Entidade{
 
+	public static final String FIND_BY_CAR = "br.com.transferr.core.model.CoordinateCar.findByCar";
 	/**
 	 * 
 	 */

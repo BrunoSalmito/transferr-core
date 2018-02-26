@@ -2,6 +2,8 @@ package br.com.transferr.core.dao;
 
 import java.util.Date;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.transferr.core.model.CoordinateCar;
@@ -36,5 +38,15 @@ public class CoordinateCarDAO extends SuperClassDAO<CoordinateCar> {
     	//tx.commit();
     	//session.close();
     }
+    
+    public CoordinateCar findByCarId(Long carID) {
+		try {
+			return getManager().createNamedQuery(CoordinateCar.FIND_BY_CAR, CoordinateCar.class)
+					.setParameter("idCar", carID)
+					.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 }
