@@ -3,6 +3,7 @@ package br.com.transferr.core.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="sub_country")
 public class SubCountry   extends Entidade {
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ID_COUNTRY",referencedColumnName="ID",nullable=true)
 	private Country country;
 	

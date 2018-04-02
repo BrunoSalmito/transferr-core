@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,6 +28,18 @@ public class Driver  extends Entidade{
 	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
 	private User user;
 
+
+	@ManyToOne
+	@JoinColumn(name = "ID_GROUP",referencedColumnName="ID",nullable=true)
+	private Grouping group;
+	
+	public Grouping getGroup() {
+		return group;
+	}
+
+	public void setGroup(Grouping group) {
+		this.group = group;
+	}
 
 	public String getName() {
 		return name;

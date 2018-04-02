@@ -29,9 +29,7 @@ public class Car  extends Entidade{
 	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
 	
 	
-	@OneToMany
-	@JoinColumn(name = "ID_GROUP",referencedColumnName="ID",nullable=true)
-	private Group group;
+	
 	
 	@Column(name = "photo")
 	private String photo;

@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name="Location")
 public class Location   extends Entidade {
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ID_SUB_COUNTRY",referencedColumnName="ID",nullable=true)
 	private SubCountry subCountry;
 	
@@ -24,7 +26,10 @@ public class Location   extends Entidade {
     private String photoProfile;
 	
 	
-	@CollectionTable(name="Location_images")
+	//@CollectionTable(name="Location_images")
+	@ElementCollection
+	@CollectionTable(name="Location_images", joinColumns=@JoinColumn(name="location_id"))
+	@Column(name="image_path")
 	private List<String> images;
 
 

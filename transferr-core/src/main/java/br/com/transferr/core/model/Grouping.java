@@ -3,12 +3,13 @@ package br.com.transferr.core.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Group")
-public class Group   extends Entidade{
+@Table(name="GROUPING")
+public class Grouping   extends Entidade{
 
 	@Column(name = "name")
 	public String name;
@@ -19,7 +20,7 @@ public class Group   extends Entidade{
 	@Column(name = "code_principal")
 	public Integer codeTelephone;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "ID_LOCATION",referencedColumnName="ID",nullable=true)
 	public Location location;
 	
