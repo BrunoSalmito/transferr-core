@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+//import org.hibernate.annotations.ColumnDefault;
+
 import br.com.transferr.core.enums.EnumStatus;
 import br.com.transferr.core.enums.EnumTypeCar;
 
@@ -49,8 +51,9 @@ public class Car  extends Entidade{
 	@Column(name = "nr_seats")
 	private String nrSeats;
 	
-	@Column(name="type",nullable=false)
+	@Column(name="type_car",nullable=false)
 	@Enumerated(EnumType.ORDINAL)
+	@org.hibernate.annotations.ColumnDefault("0")
 	private EnumTypeCar type;
 	
 	@OneToOne
