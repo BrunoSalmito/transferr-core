@@ -6,13 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="plain_tour")
 public class PlainTour  extends Entidade{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -674774561676778290L;
+
 	@Column(name = "date")
 	public Date date;
 	
@@ -26,6 +30,21 @@ public class PlainTour  extends Entidade{
 	@ManyToOne
 	@JoinColumn(name = "ID_TOUR_OPTION",referencedColumnName="ID",nullable=true)
 	private TourOption tourOption;
+	
+	/**
+	 * When it 'true' means that the driver still looking for passengers to complete the tour.
+	 */
+	@Column(name="IS_OPEN",nullable=false)
+	@org.hibernate.annotations.ColumnDefault("t")
+	private Boolean open = Boolean.TRUE;
+	
+	public Boolean getOpen() {
+		return open;
+	}
+
+	public void setOpen(Boolean open) {
+		this.open = open;
+	}
 
 	public Date getDate() {
 		return date;

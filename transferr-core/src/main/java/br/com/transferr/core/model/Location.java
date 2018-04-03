@@ -6,14 +6,19 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Location")
 public class Location   extends Entidade {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6696481321739833579L;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_SUB_COUNTRY",referencedColumnName="ID",nullable=true)
@@ -27,7 +32,7 @@ public class Location   extends Entidade {
 	
 	
 	//@CollectionTable(name="Location_images")
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="Location_images", joinColumns=@JoinColumn(name="location_id"))
 	@Column(name="image_path")
 	private List<String> images;
