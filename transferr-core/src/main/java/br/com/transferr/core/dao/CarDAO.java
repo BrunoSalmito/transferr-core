@@ -61,9 +61,9 @@ public class CarDAO extends SuperClassDAO<Car> {
 	    where.append("  WHERE                              ").append("\n");
 	    where.append("     car.STATUS <> 2                 ").append("\n");
 	    CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
-	    where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
-		 .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
-	    query.append(where.toString());	
+	  //  where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
+		// .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
+	    //query.append(where.toString());	
 	   
 	    Query qry = getManager().createNativeQuery(query.toString(), ResponseCarsOnline.NAME);
 		

@@ -7,10 +7,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.transferr.core.enums.EnumStatus;
+import br.com.transferr.core.enums.EnumTypeCar;
 
 
 
@@ -27,6 +29,8 @@ public class Car  extends Entidade{
 	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
 	
 	
+	
+	
 	@Column(name = "photo")
 	private String photo;
 	
@@ -41,6 +45,13 @@ public class Car  extends Entidade{
 	
 	@Column(name = "fl_external_Equip")
 	private Boolean externalEquip;
+	
+	@Column(name = "nr_seats")
+	private String nrSeats;
+	
+	@Column(name="type",nullable=false)
+	@Enumerated(EnumType.ORDINAL)
+	private EnumTypeCar type;
 	
 	@OneToOne
 	@JoinColumn(name = "ID_DRIVER",referencedColumnName="ID",nullable=true)
@@ -104,6 +115,22 @@ public class Car  extends Entidade{
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getNrSeats() {
+		return nrSeats;
+	}
+
+	public void setNrSeats(String nrSeats) {
+		this.nrSeats = nrSeats;
+	}
+
+	public EnumTypeCar getType() {
+		return type;
+	}
+
+	public void setType(EnumTypeCar type) {
+		this.type = type;
 	}
 	
 	
