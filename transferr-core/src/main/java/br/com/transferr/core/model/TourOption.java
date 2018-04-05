@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="tour_option")
 public class TourOption  extends Entidade {
+
+	private static final long serialVersionUID = -2165874079626914848L;
 
 	@Column(name = "name")
 	private String name;

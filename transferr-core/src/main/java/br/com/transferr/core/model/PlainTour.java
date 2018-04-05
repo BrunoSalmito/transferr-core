@@ -18,14 +18,14 @@ public class PlainTour  extends Entidade{
 	private static final long serialVersionUID = -674774561676778290L;
 
 	@Column(name = "date")
-	public Date date;
+	private Date date;
 	
 	@Column(name = "seats_remaining")
-	public int seatsRemaining;
+	private int seatsRemaining;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_DRIVER",referencedColumnName="ID",nullable=true)
-	public Driver driver;
+	private Driver driver;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_TOUR_OPTION",referencedColumnName="ID",nullable=true)
