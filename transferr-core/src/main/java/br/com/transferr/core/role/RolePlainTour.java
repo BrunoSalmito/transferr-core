@@ -79,5 +79,26 @@ public class RolePlainTour extends RoleSuperClass<PlainTour> {
 		}
 		return plainTour;
 	}
+	/**
+	 * Increase or decrease the number of seats for a tour.
+	 * @param idPlainTour
+	 * @param seats
+	 * @return
+	 * @throws ValidationException
+	 */
+	public PlainTour increseSeats(long idPlainTour,int seats) throws ValidationException {
+		PlainTour plainTour = find(idPlainTour);
+		if(plainTour == null){
+			throw new ValidationException("Passeio não encontrado");
+		}
+		int seatsRemaining = plainTour.getSeatsRemaining();
+		seatsRemaining = seatsRemaining - seats;
+		if(seatsRemaining < 0){
+			throw new ValidationException("O némero de passageiros " + seats + " resultou em um número negativo de assentos");
+		}
+		plainTour.setSeatsRemaining(seatsRemaining);
+		plainTour = update(plainTour);
+		return plainTour;
+	}
 
 }
