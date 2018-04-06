@@ -1,20 +1,25 @@
 package br.com.transferr.core.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 @Entity
 @Table(name="driver")
 public class Driver  extends Entidade{
 
+	private static final long serialVersionUID = 7098607490399840681L;
+
+	public Driver() {
+		super();
+	}
 	@Column(name = "name")
 	private String name;
 	
@@ -28,10 +33,12 @@ public class Driver  extends Entidade{
 	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
 	private User user;
 
-
 	@ManyToOne
 	@JoinColumn(name = "ID_GROUP",referencedColumnName="ID",nullable=true)
 	private Grouping group;
+	@JsonIgnore
+	@OneToOne(mappedBy="driver",fetch=FetchType.EAGER)
+	private Car car;
 	
 	public Grouping getGroup() {
 		return group;
@@ -71,6 +78,14 @@ public class Driver  extends Entidade{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
 	}
 
 	

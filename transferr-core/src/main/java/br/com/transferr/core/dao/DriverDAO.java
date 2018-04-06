@@ -16,8 +16,9 @@ public class DriverDAO extends SuperClassDAO<Driver> {
 	public DriverDAO() {
 		 
 	}
+
 	
-		@Override
+	@Override
 	public Driver find(long codigo) {
 		return manager.find(Driver.class, codigo);
 	}
@@ -34,7 +35,6 @@ public class DriverDAO extends SuperClassDAO<Driver> {
 		} catch (NoResultException e) {
 			return null;
 		}
-	}
-		
+	}	
 
 }

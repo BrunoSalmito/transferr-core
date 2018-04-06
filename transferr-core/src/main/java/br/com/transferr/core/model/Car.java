@@ -4,12 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 //import org.hibernate.annotations.ColumnDefault;
 
@@ -28,8 +30,15 @@ import br.com.transferr.core.enums.EnumTypeCar;
 @Table(name="Car")
 public class Car  extends Entidade{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1934417799067460444L;
+
 	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
-	
+	public Car() {
+		super();
+	}
 	
 	
 	
@@ -64,6 +73,10 @@ public class Car  extends Entidade{
 	@Enumerated(EnumType.ORDINAL)
 	private EnumStatus status;
 
+	@JsonIgnore
+	@OneToOne(mappedBy="car",fetch=FetchType.EAGER)
+	private CoordinateCar coordinateCar;
+	
 	public String getModel() {
 		return model;
 	}
@@ -134,6 +147,14 @@ public class Car  extends Entidade{
 
 	public void setType(EnumTypeCar type) {
 		this.type = type;
+	}
+
+	public CoordinateCar getCoordinateCar() {
+		return coordinateCar;
+	}
+
+	public void setCoordinateCar(CoordinateCar coordinateCar) {
+		this.coordinateCar = coordinateCar;
 	}
 	
 	

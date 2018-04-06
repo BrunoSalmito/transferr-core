@@ -4,13 +4,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+/**
+ * Represents the federal state of a country for example: (Florida)
+ * @author idoctor
+ *
+ */
 @Entity
 @Table(name="sub_country")
 public class SubCountry   extends Entidade {
+
+	public SubCountry() {
+	}
+	
+	private static final long serialVersionUID = 8583570399600470000L;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_COUNTRY",referencedColumnName="ID",nullable=true)

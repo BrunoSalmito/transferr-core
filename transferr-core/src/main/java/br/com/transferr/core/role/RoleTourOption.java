@@ -42,5 +42,8 @@ public class RoleTourOption extends RoleSuperClass<TourOption> {
 	public List<TourOption> getAll() {
 		return tourOptionDAO.getAll();
 	}
+	public List<TourOption> getByLocation(long idLocation) {
+		return tourOptionDAO.getByLocation(idLocation);
+	}
 
 }

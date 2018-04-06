@@ -1,5 +1,6 @@
 package br.com.transferr.core.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -28,11 +29,38 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 	public List<PlainTour> getByDriver(Driver driver,Boolean isOpen) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.driver = :driver ");
-		query.append(" AND ").append(" pt.open = :isOpen");
+		query.append(" AND ").append(" pt.open = :isOpen").append("\n");
+		query.append(" AND ").append(" DATE(pt.date) = :date").append("\n");
+		query.append(" ORDER BY ").append(" pt.date DESC").append("\n");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("driver", driver)
 					.setParameter("isOpen", isOpen)
+					.setParameter("date", new Date())
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
+	public List<PlainTour> getByLocation(long idLocation) {
+		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
+		query.append(" pt.tourOption.location.id =").append(" :idLocation");
+		try {
+			return manager.createQuery(query.toString(), PlainTour.class)
+					.setParameter("idLocation", idLocation)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
+	public List<PlainTour> byTourOption(long idTourOption) {
+		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
+		query.append(" pt.tourOption.id =").append(" :idTourOption");
+		try {
+			return manager.createQuery(query.toString(), PlainTour.class)
+					.setParameter("idTourOption", idTourOption)
 					.getResultList();
 		} catch (NoResultException e) {
 			return null;

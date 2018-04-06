@@ -1,5 +1,7 @@
 package br.com.transferr.core.dao;
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.springframework.stereotype.Repository;
@@ -22,5 +24,15 @@ public class LocationDAO extends SuperClassDAO<Location> {
 		}
 	}
 	
+	
+	public List<Location> bySubCountry(long idSubCountry) {
+		try {
+			return getManager().createQuery("FROM Location l WHERE l.subCountry.id = :idSubCountry", Location.class)
+					.setParameter("idSubCountry", idSubCountry)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 }

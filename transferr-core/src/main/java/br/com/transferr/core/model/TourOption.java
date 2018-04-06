@@ -1,5 +1,7 @@
 package br.com.transferr.core.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,8 +21,8 @@ public class TourOption  extends Entidade {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "value")
-	private Double value;
+	@Column(name = "value",precision=10,scale=2)
+	private BigDecimal value;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_LOCATION",referencedColumnName="ID",nullable=true)
@@ -42,11 +44,11 @@ public class TourOption  extends Entidade {
 		this.description = description;
 	}
 
-	public Double getValue() {
+	public BigDecimal getValue() {
 		return value;
 	}
 
-	public void setValue(Double value) {
+	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
 

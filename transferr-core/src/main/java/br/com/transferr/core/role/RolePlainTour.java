@@ -100,5 +100,9 @@ public class RolePlainTour extends RoleSuperClass<PlainTour> {
 		plainTour = update(plainTour);
 		return plainTour;
 	}
+	
+	public List<PlainTour> getByLocation(long idLocation) {
+		return plainTourDAO.getByLocation(idLocation);
+	}
 
 }

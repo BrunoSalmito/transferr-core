@@ -31,5 +31,17 @@ public class TourOptionDAO extends SuperClassDAO<TourOption> {
 			return null;
 		}
 	}
+	
+	public List<TourOption> getByLocation(long idLocation) {
+		try {
+			StringBuilder query = new StringBuilder("FROM TourOption t WHERE").append("\n");
+			query.append(" location.id = :idLocation").append("\n");
+			return manager.createQuery(query.toString(), TourOption.class)
+					.setParameter("idLocation", idLocation)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 }
