@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import br.com.transferr.core.dao.LocationDAO;
 import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.model.Location;
-import br.com.transferr.core.model.SubCountry;
-
 
 @Service
 public class RoleLocation extends RoleSuperClass<Location> {
@@ -42,6 +40,10 @@ public class RoleLocation extends RoleSuperClass<Location> {
 	
 	public List<Location> bySubCountry(long idSubCountry) {
 		return locationDAO.bySubCountry(idSubCountry);
+	}
+	
+	public List<Location> byCountry(long idCountry) {
+		return locationDAO.byCountry(idCountry);
 	}
 
 }

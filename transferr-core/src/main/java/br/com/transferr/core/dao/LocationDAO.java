@@ -34,5 +34,15 @@ public class LocationDAO extends SuperClassDAO<Location> {
 			return null;
 		}
 	}
+	
+	public List<Location> byCountry(long idCountry) {
+		try {
+			return getManager().createQuery("FROM Location l WHERE l.subCountry.country.id = :idCountry", Location.class)
+					.setParameter("idCountry", idCountry)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 }
