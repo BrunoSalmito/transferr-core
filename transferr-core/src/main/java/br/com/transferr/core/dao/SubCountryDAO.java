@@ -31,5 +31,15 @@ public class SubCountryDAO extends SuperClassDAO<SubCountry> {
 			return null;
 		}
 	}
+	
+	public List<SubCountry> getByCountry(Long idCountry) {
+		try {
+			return manager.createQuery("FROM SubCountry WHERE country.id = :idCountry", SubCountry.class)
+					.setParameter("idCountry", idCountry)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 
 }

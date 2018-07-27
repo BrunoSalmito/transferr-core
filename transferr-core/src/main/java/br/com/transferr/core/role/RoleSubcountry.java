@@ -41,5 +41,9 @@ public class RoleSubcountry extends RoleSuperClass<SubCountry> {
 	public List<SubCountry> getAll() {
 		return subCountryDAO.getAll();
 	}
+	
+	public List<SubCountry> getByCountry(Long idCountry) {
+		return subCountryDAO.getByCountry(idCountry);
+	}
 
 }
