@@ -1,5 +1,6 @@
 package br.com.transferr.core.role;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +49,14 @@ public class RoleLocation extends RoleSuperClass<Location> {
 	}
 	
 	public List<ResponseLocation> getResponseBySubCountry(long idSubCountry) {
+		List<ResponseLocation> resultList = new ArrayList<>();
 		bySubCountry(idSubCountry).forEach(sub->{
-			//TODO: Finish later.
+			ResponseLocation response = new ResponseLocation();
+			response.setName(sub.getName());
+			response.setUrlMainPicture(sub.getPhotoProfile());
+			resultList.add(response );
 		});
-		return null;
+		return resultList;
 	}
 
 }
