@@ -1,5 +1,8 @@
 package br.com.transferr.core.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
@@ -35,6 +38,19 @@ public class DriverDAO extends SuperClassDAO<Driver> {
 		} catch (NoResultException e) {
 			return null;
 		}
-	}	
+	}
+	
+	public List<Driver> byLocation(Long idLocation) {
+		try {
+			return getManager().createQuery("FROM Driver WHERE group.location.id = :idLocation",Driver.class)
+					.setParameter("idLocation", idLocation)
+					.getResultList();
+		} catch (NoResultException e) {
+			return new ArrayList<>();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<>();
+		}
+	}
 
 }

@@ -29,7 +29,8 @@ public class Location   extends Entidade {
 	
 	@Column(name = "photo_profile")
     private String photoProfile;
-	
+	@Column(name = "description")
+	private String description;
 	
 	//@CollectionTable(name="Location_images")
 	@ElementCollection(fetch=FetchType.EAGER)
@@ -68,6 +69,14 @@ public class Location   extends Entidade {
 
 	public void setImages(List<String> images) {
 		this.images = images;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

@@ -16,7 +16,9 @@ import br.com.transferr.core.model.Car;
 import br.com.transferr.core.model.CoordinateCar;
 import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.model.PlainTour;
+import br.com.transferr.core.responses.ResponseDriver;
 import br.com.transferr.core.responses.ResponseDriverByTourOption;
+import br.com.transferr.core.responses.ResponseDrivers;
 import br.com.transferr.core.util.HelperBase64;
 import br.com.transferr.core.util.HelperGeoFunctions;
 import br.com.transferr.core.util.HelperNumberFormat;
@@ -120,6 +122,23 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 	
 	private String formatDecimalToCurrency(BigDecimal value) {
 		return HelperNumberFormat.currencyFormat(value);
+	}
+	public List<Driver> byLocation(Long idLocation) {
+		return driverDAO.byLocation(idLocation);
+	}
+	
+	public ResponseDrivers listByLocation(Long idLocation) {
+		ResponseDrivers responseDrivers = new ResponseDrivers();
+		byLocation(idLocation).forEach(driver->{
+			ResponseDriver resp = new ResponseDriver()
+				.setBirthDate("Idade 36")
+				.setCountryRegister(driver.getCar().getCarIdentity())
+				.setEmail(driver.getUser().getEmail())
+				.setImgProfileUrl(driver.getCar().getPhoto())
+				.setName(driver.getName());
+			responseDrivers.getDrivers().add(resp);
+		});
+		return responseDrivers;
 	}
 	
 }

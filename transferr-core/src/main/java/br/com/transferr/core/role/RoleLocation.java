@@ -52,6 +52,7 @@ public class RoleLocation extends RoleSuperClass<Location> {
 		List<ResponseLocation> resultList = new ArrayList<>();
 		bySubCountry(idSubCountry).forEach(sub->{
 			ResponseLocation response = new ResponseLocation();
+			response.setId(sub.getId());
 			response.setName(sub.getName());
 			response.setUrlMainPicture(sub.getPhotoProfile());
 			resultList.add(response );
