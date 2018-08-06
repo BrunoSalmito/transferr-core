@@ -29,6 +29,28 @@ public class Driver  extends Entidade{
 	@Column(name = "birth_date")
 	private Integer birthDate;
 	
+	@Column(name = "phone")
+	private Long phone;
+	
+	@Column(name = "ddd")
+	private Integer ddd;
+	
+	
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public Integer getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(Integer ddd) {
+		this.ddd = ddd;
+	}
 	@ManyToOne
 	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
 	private User user;
