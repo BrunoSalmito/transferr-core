@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import org.springframework.stereotype.Repository;
 
 import br.com.transferr.core.model.Location;
+import br.com.transferr.core.model.TourOption;
 
 
 
@@ -40,6 +41,13 @@ public class LocationDAO extends SuperClassDAO<Location> {
 			return getManager().createQuery("FROM Location l WHERE l.subCountry.country.id = :idCountry", Location.class)
 					.setParameter("idCountry", idCountry)
 					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	public List<Location> getAll() {
+		try {
+			return manager.createQuery("FROM Location", Location.class).getResultList();
 		} catch (NoResultException e) {
 			return null;
 		}

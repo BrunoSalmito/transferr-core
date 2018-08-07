@@ -47,6 +47,9 @@ public class RoleLocation extends RoleSuperClass<Location> {
 	public List<Location> byCountry(long idCountry) {
 		return locationDAO.byCountry(idCountry);
 	}
+	public List<Location> getAll() {
+		return locationDAO.getAll();
+	}
 	
 	public List<ResponseLocation> getResponseBySubCountry(long idSubCountry) {
 		List<ResponseLocation> resultList = new ArrayList<>();

@@ -32,11 +32,8 @@ public class Location   extends Entidade {
 	@Column(name = "description")
 	private String description;
 	
-	//@CollectionTable(name="Location_images")
-	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name="Location_images", joinColumns=@JoinColumn(name="location_id"))
-	@Column(name="image_path")
-	private List<String> images;
+	
+	
 
 
 	public String getName() {
@@ -63,13 +60,6 @@ public class Location   extends Entidade {
 		this.photoProfile = photoProfile;
 	}
 
-	public List<String> getImages() {
-		return images;
-	}
-
-	public void setImages(List<String> images) {
-		this.images = images;
-	}
 
 	public String getDescription() {
 		return description;

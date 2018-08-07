@@ -1,5 +1,7 @@
 package br.com.transferr.core.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -47,5 +49,7 @@ public  abstract class SuperClassDAO<T extends Entidade>  {
 	public T find(Class<T> type, long id){
 		return this.manager.find(type, id);
 	}
+	
+
 
 }

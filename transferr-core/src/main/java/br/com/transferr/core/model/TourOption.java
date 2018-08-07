@@ -1,9 +1,13 @@
 package br.com.transferr.core.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -60,6 +64,18 @@ public class TourOption  extends Entidade {
 		this.location = location;
 	}
 	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="tour_option_images", joinColumns=@JoinColumn(name="tour_option_id"))
+	@Column(name="image_path")
+	private List<String> images;
+
+	public List<String> getImages() {
+		return images;
+	}
+
+	public void setImages(List<String> images) {
+		this.images = images;
+	}
 	
 	
 	
