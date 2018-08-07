@@ -31,9 +31,23 @@ public class TourOption  extends Entidade {
 	@ManyToOne
 	@JoinColumn(name = "ID_LOCATION",referencedColumnName="ID",nullable=true)
 	private Location location;
+	
+	@Column(name = "profile_url")
+	private String profileUrl;
 
+	
+	
+	
 	public String getName() {
 		return name;
+	}
+
+	public String getProfileUrl() {
+		return profileUrl;
+	}
+
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
 	}
 
 	public void setName(String name) {
