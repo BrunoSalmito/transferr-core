@@ -30,6 +30,11 @@ public class ResponsePassengersOnline {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
+	
+	public ResponsePassengersOnline() {
+		super();
+		
+	}
 	public Long getId() {
 		return id;
 	}

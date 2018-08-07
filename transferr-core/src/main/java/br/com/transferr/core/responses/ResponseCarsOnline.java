@@ -34,6 +34,9 @@ public class ResponseCarsOnline {
 	private Double latitude;
 	private Double longitude;
 	
+	public ResponseCarsOnline() {
+		
+	}
 	
 	
 	public ResponseCarsOnline(Long id, String photo, String model, String placa, String cor, String name,

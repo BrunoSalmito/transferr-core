@@ -12,17 +12,17 @@ import javax.persistence.Table;
 public class Grouping   extends Entidade{
 
 	@Column(name = "name")
-	public String name;
+	private String name;
 	@Column(name = "stateID")
-	public String stateID;
+	private String stateID;
 	@Column(name = "telephone_principal")
-	public Integer telephone;
+	private Integer telephone;
 	@Column(name = "code_principal")
-	public Integer codeTelephone;
+	private Integer codeTelephone;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_LOCATION",referencedColumnName="ID",nullable=true)
-	public Location location;
+	private Location location;
 	
 	
 	

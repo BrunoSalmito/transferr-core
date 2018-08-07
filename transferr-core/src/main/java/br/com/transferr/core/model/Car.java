@@ -75,7 +75,7 @@ public class Car  extends Entidade{
 
 	@JsonIgnore
 	@OneToOne(mappedBy="car",fetch=FetchType.EAGER)
-	private CoordinateCar coordinateCar;
+	private CoordinateCar coordinateCar; 
 	
 	public String getModel() {
 		return model;
