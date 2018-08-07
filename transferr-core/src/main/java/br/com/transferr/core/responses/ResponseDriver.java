@@ -7,6 +7,7 @@ public class ResponseDriver {
 	private String countryRegister;
 	private String email;
 	private String imgProfileUrl;
+	private String phone;
 	public String getName() {
 		return name;
 	}
@@ -41,5 +42,11 @@ public class ResponseDriver {
 	public ResponseDriver setImgProfileUrl(String imgProfileUrl) {
 		this.imgProfileUrl = imgProfileUrl;
 		return this;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }
