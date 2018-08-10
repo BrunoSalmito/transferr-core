@@ -16,9 +16,9 @@ public class Grouping   extends Entidade{
 	@Column(name = "stateID")
 	private String stateID;
 	@Column(name = "telephone_principal")
-	private Integer telephone;
+	private Long telephone;
 	@Column(name = "code_principal")
-	private Integer codeTelephone;
+	private Long codeTelephone;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_LOCATION",referencedColumnName="ID",nullable=true)
@@ -38,16 +38,16 @@ public class Grouping   extends Entidade{
 	public void setStateID(String stateID) {
 		this.stateID = stateID;
 	}
-	public Integer getTelephone() {
+	public Long getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(Integer telephone) {
+	public void setTelephone(Long telephone) {
 		this.telephone = telephone;
 	}
-	public Integer getCodeTelephone() {
+	public Long getCodeTelephone() {
 		return codeTelephone;
 	}
-	public void setCodeTelephone(Integer codeTelephone) {
+	public void setCodeTelephone(Long codeTelephone) {
 		this.codeTelephone = codeTelephone;
 	}
 	public Location getLocation() {
