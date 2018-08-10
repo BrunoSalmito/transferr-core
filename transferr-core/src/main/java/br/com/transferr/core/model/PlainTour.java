@@ -35,7 +35,7 @@ public class PlainTour  extends Entidade{
 	 * When it 'true' means that the driver still looking for passengers to complete the tour.
 	 */
 	@Column(name="IS_OPEN",nullable=false)
-	@org.hibernate.annotations.ColumnDefault("t")
+	@org.hibernate.annotations.ColumnDefault("true")
 	private Boolean open = Boolean.TRUE;
 	
 	public Boolean getOpen() {

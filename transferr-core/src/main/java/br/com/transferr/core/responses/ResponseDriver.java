@@ -8,6 +8,7 @@ public class ResponseDriver {
 	private String email;
 	private String imgProfileUrl;
 	private String phone;
+	private String whatsapp;
 	public String getName() {
 		return name;
 	}
@@ -49,4 +50,13 @@ public class ResponseDriver {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	public String getWhatsapp() {
+		return whatsapp;
+	}
+	public ResponseDriver setWhatsapp(String whatsapp) {
+		this.whatsapp = whatsapp;
+		return this;
+	}
+	
+	
 }

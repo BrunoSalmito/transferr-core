@@ -135,13 +135,15 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 				.setCountryRegister(driver.getCar().getCarIdentity())
 				.setEmail(driver.getUser().getEmail())
 				.setImgProfileUrl(driver.getCar().getPhoto())
-				.setName(driver.getName());
+				.setName(driver.getName())
+				.setWhatsapp(String.valueOf(driver.getWhatsapp()));
 			String phoneNumber = "Não informado.";
 			if(driver.getDdd() != null && driver.getPhone() != null) {
 				Integer ddd = driver.getDdd();
 				Long phone = driver.getPhone();
 				if(ddd > 0 && phone > 0) {
-					phoneNumber = String.format("(%s) %s", ddd,phone);
+					//phoneNumber = String.format("(%s) %s", ddd,phone);
+					phoneNumber = String.format("+55%s%s", ddd,phone);
 				}
 			}
 			resp.setPhone(phoneNumber);

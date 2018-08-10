@@ -36,6 +36,18 @@ public class Driver  extends Entidade{
 	private Integer ddd;
 	
 	
+	@Column(name = "whatsapp")
+	private Long whatsapp;
+	
+	
+	public Long getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(Long whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+
 	public Long getPhone() {
 		return phone;
 	}
