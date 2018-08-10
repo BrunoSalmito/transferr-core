@@ -12,6 +12,7 @@ import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.model.PlainTour;
 import br.com.transferr.core.model.TourOption;
 import br.com.transferr.core.responses.ResponsePlainTour;
+import br.com.transferr.core.responses.ResponsePlainsByTourAndLocation;
 
 
 @Service
@@ -103,6 +104,22 @@ public class RolePlainTour extends RoleSuperClass<PlainTour> {
 	
 	public List<PlainTour> getByLocation(long idLocation) {
 		return plainTourDAO.getByLocation(idLocation);
+	}
+	
+	public ResponsePlainsByTourAndLocation plainsByTourAndLocation(long idTour) throws ValidationException {
+		TourOption tourOption = roleTourOption.find(idTour);
+		ResponsePlainsByTourAndLocation plains = new ResponsePlainsByTourAndLocation();
+		if(tourOption != null) {
+			plains.setPlainsFromLocation(getByLocation(tourOption.getLocation().getId()));
+			plains.setPlainsFromTour(getByTourOption(idTour));
+		}else {
+			throw new ValidationException("Opção de passeio inválida.");
+		}
+		return plains;
+	}
+	
+	public List<PlainTour> getByTourOption(long idTourOption) {
+		return plainTourDAO.byTourOption(idTourOption);
 	}
 
 }
