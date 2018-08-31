@@ -70,7 +70,7 @@ public class Driver  extends Entidade{
 	@ManyToOne
 	@JoinColumn(name = "ID_GROUP",referencedColumnName="ID",nullable=true)
 	private Grouping group;
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne(mappedBy="driver",fetch=FetchType.EAGER)
 	private Car car;
 	

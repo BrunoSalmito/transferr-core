@@ -64,7 +64,7 @@ public class Car  extends Entidade{
 	@Enumerated(EnumType.ORDINAL)
 	@org.hibernate.annotations.ColumnDefault("0")
 	private EnumTypeCar type;
-	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "ID_DRIVER",referencedColumnName="ID",nullable=true)
 	private Driver driver;
