@@ -66,6 +66,11 @@ public class RoleCar extends RoleSuperClass<Car> {
 		return this.carDAO.getCarsOnline(coordinates);
 	}
 	
+	public void updateStatusCar(Long idCar, EnumStatus status) {
+		carDAO.updateStatusCar( idCar,  status);
+	}
+	
+	
 	public void putCarOnlineOrOffline(RequestCoordinatesUpdate carUpdate,boolean isOnline) throws ValidationException {
 		Car car = carDAO.find(carUpdate.getIdCar());
 		if(car == null) {

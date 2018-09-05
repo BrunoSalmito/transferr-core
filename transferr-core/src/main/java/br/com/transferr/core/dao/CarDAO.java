@@ -1,5 +1,6 @@
 package br.com.transferr.core.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -8,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.transferr.core.enums.EnumStatus;
 import br.com.transferr.core.metadata.CoordinatesAmplitude;
 import br.com.transferr.core.metadata.CoordinatesQuadrant;
 import br.com.transferr.core.model.Car;
@@ -84,6 +86,18 @@ public class CarDAO extends SuperClassDAO<Car> {
 			return null;
 		}
 	}
+	
+	 public void updateStatusCar(Long idCar, EnumStatus status){
+	    	
+	    	String hqlUpdate = "update Car c set c.status = :status where c.id = :idCar";
+	    	// or String hqlUpdate = "update Customer set name = :newName where name = :oldName";
+	    	manager.createQuery( hqlUpdate )
+	    	        .setParameter( "status", status )
+	    	        .setParameter( "idCar", idCar )
+	    	        .executeUpdate();
+	    	//tx.commit();
+	    	//session.close();
+	    }
 	
 	
 	
