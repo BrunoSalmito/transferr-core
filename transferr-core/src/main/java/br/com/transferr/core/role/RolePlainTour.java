@@ -106,11 +106,15 @@ public class RolePlainTour extends RoleSuperClass<PlainTour> {
 		return plainTourDAO.getByLocation(idLocation);
 	}
 	
+	public List<PlainTour> getByLocation(long idLocation, long idTour) {
+		return plainTourDAO.getByLocation(idLocation,idTour);
+	}
+	
 	public ResponsePlainsByTourAndLocation plainsByTourAndLocation(long idTour) throws ValidationException {
 		TourOption tourOption = roleTourOption.find(idTour);
 		ResponsePlainsByTourAndLocation plains = new ResponsePlainsByTourAndLocation();
 		if(tourOption != null) {
-			plains.setPlainsFromLocation(getByLocation(tourOption.getLocation().getId()));
+			plains.setPlainsFromLocation(getByLocation(tourOption.getLocation().getId(),idTour));
 			plains.setPlainsFromTour(getByTourOption(idTour));
 		}else {
 			throw new ValidationException("Opção de passeio inválida.");
@@ -121,5 +125,7 @@ public class RolePlainTour extends RoleSuperClass<PlainTour> {
 	public List<PlainTour> getByTourOption(long idTourOption) {
 		return plainTourDAO.byTourOption(idTourOption);
 	}
+	
+	
 
 }

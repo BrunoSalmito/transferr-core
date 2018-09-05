@@ -55,6 +55,20 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 		}
 	}
 	
+	public List<PlainTour> getByLocation(long idLocation, long idTour) {
+		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
+		query.append(" pt.tourOption.location.id =").append(" :idLocation");
+		query.append(" AND pt.tourOption.id !=").append(" :idTour");
+		try {
+			return manager.createQuery(query.toString(), PlainTour.class)
+					.setParameter("idLocation", idLocation)
+					.setParameter("idTour", idTour)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
 	public List<PlainTour> byTourOption(long idTourOption) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.id =").append(" :idTourOption");
