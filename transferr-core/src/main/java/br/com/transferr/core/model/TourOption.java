@@ -34,6 +34,9 @@ public class TourOption  extends Entidade {
 	
 	@Column(name = "profile_url")
 	private String profileUrl;
+	
+	@Column(name = "short_description")
+	private String shortDescription;
 
 	
 	
@@ -89,6 +92,14 @@ public class TourOption  extends Entidade {
 
 	public void setImages(List<String> images) {
 		this.images = images;
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 	
 	
