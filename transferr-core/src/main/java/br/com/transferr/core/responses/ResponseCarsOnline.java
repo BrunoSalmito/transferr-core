@@ -16,7 +16,11 @@ import javax.persistence.SqlResultSetMapping;
 					@ColumnResult(name="cor"				,type=String.class),
 					@ColumnResult(name="name_driver"		,type=String.class),
 					@ColumnResult(name="latitude"			,type=Double.class),
-					@ColumnResult(name="longitude"			,type=Double.class)
+					@ColumnResult(name="longitude"			,type=Double.class),
+					@ColumnResult(name="phone"			    ,type=Long.class),
+					@ColumnResult(name="whatsapp"			,type=Long.class),
+					@ColumnResult(name="ddd"			    ,type=Integer.class)
+				    
 					
 			}
 		)	
@@ -33,6 +37,9 @@ public class ResponseCarsOnline {
 	private String name;
 	private Double latitude;
 	private Double longitude;
+	private Long phone;
+	private Long whatsapp;
+	private Integer ddd;
 	
 	public ResponseCarsOnline() {
 		
@@ -40,7 +47,7 @@ public class ResponseCarsOnline {
 	
 	
 	public ResponseCarsOnline(Long id, String photo, String model, String placa, String cor, String name,
-			Double latitude, Double longitude) {
+			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd) {
 		super();
 		this.id = id;
 		this.photo = photo;
@@ -50,6 +57,9 @@ public class ResponseCarsOnline {
 		this.name = name;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.phone = phone;
+		this.whatsapp = whatsapp;
+		this.ddd = ddd;
 	}
 	public String getPhoto() {
 		return photo;
@@ -99,6 +109,36 @@ public class ResponseCarsOnline {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+
+	public Long getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+
+	public Long getWhatsapp() {
+		return whatsapp;
+	}
+
+
+	public void setWhatsapp(Long whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+
+
+	public Integer getDdd() {
+		return ddd;
+	}
+
+
+	public void setDdd(Integer ddd) {
+		this.ddd = ddd;
 	}
 	
 
