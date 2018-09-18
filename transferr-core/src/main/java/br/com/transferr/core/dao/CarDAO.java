@@ -48,13 +48,16 @@ public class CarDAO extends SuperClassDAO<Car> {
 		StringBuilder where = new StringBuilder();
 		query.append("SELECT                         ").append("\n");
 		query.append("    car.id as id,              ").append("\n");
-	    query.append("    ' ' as photo,              ").append("\n");
+	    query.append("    car.photo as photo,              ").append("\n");
 	    query.append("    car.model as model,        ").append("\n");
 	    query.append("    car.car_identity as placa, ").append("\n");
 	    query.append("    car.color as cor ,         ").append("\n");
 	    query.append("    driver.name as name_driver,").append("\n");
 	    query.append("    co.latitude  AS latitude,  ").append("\n");
-	    query.append("    co.longitude AS longitude  ").append("\n");
+	    query.append("    co.longitude AS longitude,  ").append("\n");
+	    query.append("    driver.phone AS phone,  ").append("\n");
+	    query.append("    driver.whatsapp AS whatsapp,  ").append("\n");
+	    query.append("    driver.ddd AS ddd  ").append("\n");
 	    query.append("  FROM car                     ").append("\n");
 	    query.append("    INNER JOIN driver ON       ").append("\n");
 	    query.append("      car.id_driver = driver.id").append("\n");
@@ -62,10 +65,10 @@ public class CarDAO extends SuperClassDAO<Car> {
 	    query.append("      co.id_car = car.id             ").append("\n");
 	    where.append("  WHERE                              ").append("\n");
 	    where.append("     car.STATUS <> 2                 ").append("\n");
-	    CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
-	  //  where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
+	    //CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
+	   //where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
 		// .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
-	    //query.append(where.toString());	
+	    query.append(where.toString());	
 	   
 	    Query qry = getManager().createNativeQuery(query.toString(), ResponseCarsOnline.NAME);
 		

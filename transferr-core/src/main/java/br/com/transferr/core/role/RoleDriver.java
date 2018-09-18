@@ -136,7 +136,8 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 				.setEmail(driver.getUser().getEmail())
 				.setImgProfileUrl(driver.getCar().getPhoto())
 				.setName(driver.getName())
-				.setWhatsapp(String.valueOf(driver.getWhatsapp()));
+				.setWhatsapp(String.valueOf(driver.getWhatsapp()))
+				.setNameOfCar(driver.getCar().getModel());
 			String phoneNumber = "Não informado.";
 			if(driver.getDdd() != null && driver.getPhone() != null) {
 				Integer ddd = driver.getDdd();
