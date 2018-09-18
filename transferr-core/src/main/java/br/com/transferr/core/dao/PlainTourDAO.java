@@ -46,9 +46,11 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 	public List<PlainTour> getByLocation(long idLocation) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.location.id =").append(" :idLocation");
+		query.append(" AND pt.date > :today");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("idLocation", idLocation)
+					.setParameter("today", new Date())
 					.getResultList();
 		} catch (NoResultException e) {
 			return null;
@@ -59,11 +61,13 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.location.id =").append(" :idLocation");
 		query.append(" AND pt.tourOption.id !=").append(" :idTour");
+		query.append(" AND pt.date > :today");
 		query.append(" ORDER BY date ASC");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("idLocation", idLocation)
 					.setParameter("idTour", idTour)
+					.setParameter("today", new Date())
 					.getResultList();
 		} catch (NoResultException e) {
 			return null;
@@ -73,11 +77,13 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 	public List<PlainTour> byTourOption(long idTourOption) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.id =").append(" :idTourOption");
+		query.append(" AND pt.date > :today");
 		query.append(" ORDER BY date ASC");
 		//query.append(" ORDER BY random()");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("idTourOption", idTourOption)
+					.setParameter("today", new Date())
 					.getResultList();
 		} catch (NoResultException e) {
 			return null;

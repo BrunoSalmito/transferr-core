@@ -1,6 +1,5 @@
 package br.com.transferr.core.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -65,9 +64,9 @@ public class CarDAO extends SuperClassDAO<Car> {
 	    query.append("      co.id_car = car.id             ").append("\n");
 	    where.append("  WHERE                              ").append("\n");
 	    where.append("     car.STATUS <> 2                 ").append("\n");
-	    //CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
-	   //where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
-		// .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
+	    CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
+	    where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
+		 .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
 	    query.append(where.toString());	
 	   
 	    Query qry = getManager().createNativeQuery(query.toString(), ResponseCarsOnline.NAME);
