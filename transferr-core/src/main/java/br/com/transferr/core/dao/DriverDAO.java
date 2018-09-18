@@ -52,5 +52,11 @@ public class DriverDAO extends SuperClassDAO<Driver> {
 			return new ArrayList<>();
 		}
 	}
+	
+	public Driver findByUserID(long userId) {
+		return getManager().createQuery("FROM Driver d WHERE d.user.id = :userId", Driver.class)
+				.setParameter("userId", userId)
+				.getSingleResult();
+	}
 
 }

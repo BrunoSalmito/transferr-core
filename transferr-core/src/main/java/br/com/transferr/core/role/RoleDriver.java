@@ -152,4 +152,8 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 		return responseDrivers;
 	}
 	
+	public Driver findByUserID(long userId) {
+		return driverDAO.findByUserID(userId);
+	}
+	
 }
