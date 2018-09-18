@@ -42,7 +42,7 @@ public class DriverDAO extends SuperClassDAO<Driver> {
 	
 	public List<Driver> byLocation(Long idLocation) {
 		try {
-			return getManager().createQuery("FROM Driver WHERE group.location.id = :idLocation",Driver.class)
+			return getManager().createQuery("FROM Driver WHERE group.location.id = :idLocation ORDER BY random()",Driver.class)
 					.setParameter("idLocation", idLocation)
 					.getResultList();
 		} catch (NoResultException e) {
