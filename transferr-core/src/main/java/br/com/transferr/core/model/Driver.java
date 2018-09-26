@@ -1,5 +1,7 @@
 package br.com.transferr.core.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +29,7 @@ public class Driver  extends Entidade{
 	private String countryRegister;
 
 	@Column(name = "birth_date")
-	private Integer birthDate;
+	private Date birthDate;
 	
 	@Column(name = "phone")
 	private Long phone;
@@ -39,30 +41,6 @@ public class Driver  extends Entidade{
 	@Column(name = "whatsapp")
 	private Long whatsapp;
 	
-	
-	public Long getWhatsapp() {
-		return whatsapp;
-	}
-
-	public void setWhatsapp(Long whatsapp) {
-		this.whatsapp = whatsapp;
-	}
-
-	public Long getPhone() {
-		return phone;
-	}
-
-	public void setPhone(Long phone) {
-		this.phone = phone;
-	}
-
-	public Integer getDdd() {
-		return ddd;
-	}
-
-	public void setDdd(Integer ddd) {
-		this.ddd = ddd;
-	}
 	@ManyToOne
 	@JoinColumn(name = "ID_USER" ,referencedColumnName="ID")
 	private User user;
@@ -98,13 +76,7 @@ public class Driver  extends Entidade{
 		this.countryRegister = countryRegister;
 	}
 
-	public Integer getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(Integer birthDate) {
-		this.birthDate = birthDate;
-	}
+	
 
 	public User getUser() {
 		return user;
@@ -122,6 +94,36 @@ public class Driver  extends Entidade{
 		this.car = car;
 	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public Long getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(Long whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
+	public Integer getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(Integer ddd) {
+		this.ddd = ddd;
+	}
 	
 	
 }
