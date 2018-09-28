@@ -72,7 +72,7 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 	}
 	
 	private File checkAndCreateTheImagesServerRepository(String idCar) {
-		File file = new File(RoleParametros.paramPathRepoImagens+File.separator+"Car"+File.separator+idCar);
+		File file = new File(RoleParametros.paramPathRepoImagens+File.separator+"car"+File.separator+idCar);
 		if(!file.exists()){
 			file.mkdirs();
 		}

@@ -17,6 +17,8 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 import br.com.transferr.core.enums.EnumStatus;
 import br.com.transferr.core.enums.EnumTypeCar;
+import br.com.transferr.core.role.RoleParametros;
+import br.com.transferr.core.util.HelperVariables;
 
 
 
@@ -24,23 +26,15 @@ import br.com.transferr.core.enums.EnumTypeCar;
 	@NamedQuery(name=Car.FIND_BY_DRIVER,query="FROM Car c WHERE c.driver.id = :idDriver")
 })
 
-
-
 @Entity
 @Table(name="Car")
 public class Car  extends Entidade{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1934417799067460444L;
-
+	private static final long serialVersionUID 	= -1934417799067460444L;
 	public static final String FIND_BY_DRIVER   = "br.com.transferr.core.model.User.findByDriver";
 	public Car() {
 		super();
 	}
-	
-	
 	
 	@Column(name = "photo")
 	private String photo;
@@ -126,7 +120,7 @@ public class Car  extends Entidade{
 	}
 
 	public String getPhoto() {
-		return photo;
+		return RoleParametros.paramUrlFoto+HelperVariables.docBaseRepoFiles+"/car/"+getId()+"/"+HelperVariables.DEFAULT_NAME_FOR_PHOTO;
 	}
 
 	public void setPhoto(String photo) {
