@@ -29,13 +29,11 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 	public List<PlainTour> getByDriver(Driver driver,Boolean isOpen) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.driver = :driver ");
-		query.append(" AND ").append(" pt.open = :isOpen").append("\n");
-		query.append(" AND ").append(" DATE(pt.date) = :date").append("\n");
-		query.append(" ORDER BY ").append(" pt.date DESC").append("\n");
+		query.append(" AND ").append(" DATE(pt.date) >= :date").append("\n");
+		query.append(" ORDER BY ").append(" pt.date ASC").append("\n");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("driver", driver)
-					.setParameter("isOpen", isOpen)
 					.setParameter("date", new Date())
 					.getResultList();
 		} catch (NoResultException e) {
