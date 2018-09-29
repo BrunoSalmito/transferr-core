@@ -23,13 +23,13 @@ public class RoleEmail {
 		sender.send(conteudo, AssuntoDoEmail, roleParametros.getEnderecoEnvioEmail(), emailDestino);
 	}
 	
-	public void sendEmailSuporteIdoctor(String emailDestino, String AssuntoDoEmail, String conteudo) throws MailException {
-		int port 		= roleParametros.getPortHostEmail();
-		String host		= roleParametros.getHostEmail();
-		String uname	= roleParametros.getUsuarioEmail();
-		String pws		= roleParametros.getSenhaEmail();
-		Sender sender = new Sender(port, host, uname, pws);
-		sender.send(conteudo, AssuntoDoEmail, roleParametros.getEnderecoEmailSuporte(), emailDestino);
-	}
+//	public void sendEmailSuporteIdoctor(String emailDestino, String AssuntoDoEmail, String conteudo) throws MailException {
+//		int port 		= roleParametros.getPortHostEmail();
+//		String host		= roleParametros.getHostEmail();
+//		String uname	= roleParametros.getUsuarioEmail();
+//		String pws		= roleParametros.getSenhaEmail();
+//		Sender sender = new Sender(port, host, uname, pws);
+//		sender.send(conteudo, AssuntoDoEmail, roleParametros.getEnderecoEmailSuporte(), emailDestino);
+//	}
 
 }
