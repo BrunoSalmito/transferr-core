@@ -2,15 +2,29 @@ package br.com.transferr.core.model;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyEnumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.FilterJoinTable;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.annotations.Where;
+
+import br.com.transferr.core.enums.EnumLanguage;
 
 
 @Entity
@@ -37,10 +51,43 @@ public class TourOption  extends Entidade {
 	
 	@Column(name = "short_description")
 	private String shortDescription;
+	
+
 
 	
+	@ElementCollection
+	@CollectionTable(name="TOUR_OPTION_DESCRIPTION")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@MapKeyEnumerated(EnumType.STRING)
+	@Column(name="value",length = 2000)
+	private Map<EnumLanguage, String> descriptionLanguage;
+	
+	public Map<EnumLanguage, String> getDescriptionLanguage() {
+		return descriptionLanguage;
+	}
+
+	public void setDescriptionLanguage(Map<EnumLanguage, String> descriptionLanguage) {
+		this.descriptionLanguage = descriptionLanguage;
+	}
+	
+	@ElementCollection
+	@CollectionTable(name="TOUR_OPTION_SHORT_DESCRIPTION")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@MapKeyEnumerated(EnumType.STRING)
+	@Column(name="value",length = 2000)
+	private Map<EnumLanguage, String> shortDescriptionLanguage;
 	
 	
+	
+	
+	public Map<EnumLanguage, String> getShortDescriptionLanguage() {
+		return shortDescriptionLanguage;
+	}
+
+	public void setShortDescriptionLanguage(Map<EnumLanguage, String> shortDescriptionLanguage) {
+		this.shortDescriptionLanguage = shortDescriptionLanguage;
+	}
+
 	public String getName() {
 		return name;
 	}
