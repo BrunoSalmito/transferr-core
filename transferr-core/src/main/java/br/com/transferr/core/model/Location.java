@@ -43,7 +43,9 @@ public class Location   extends Entidade {
 	private String description;
 	
 	
-
+	
+	
+	@ElementCollection
 	@CollectionTable(name="LOCATION_DESCRIPTION")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@MapKeyEnumerated(EnumType.STRING)
