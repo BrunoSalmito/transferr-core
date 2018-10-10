@@ -66,6 +66,10 @@ public class Car  extends Entidade{
 	@Column(name="STATUS",nullable=false)
 	@Enumerated(EnumType.ORDINAL)
 	private EnumStatus status;
+	
+	@Column(name="ALWAYS_ON_MAP",nullable=false)
+	@org.hibernate.annotations.ColumnDefault("true")
+	private boolean alwaysOnMap = true;
 
 	@JsonIgnore
 	@OneToOne(mappedBy="car",fetch=FetchType.EAGER)
@@ -149,6 +153,14 @@ public class Car  extends Entidade{
 
 	public void setCoordinateCar(CoordinateCar coordinateCar) {
 		this.coordinateCar = coordinateCar;
+	}
+
+	public boolean isAlwaysOnMap() {
+		return alwaysOnMap;
+	}
+
+	public void setAlwaysOnMap(boolean alwaysOnMap) {
+		this.alwaysOnMap = alwaysOnMap;
 	}
 	
 	

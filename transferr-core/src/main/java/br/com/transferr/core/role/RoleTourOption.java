@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.transferr.core.dao.TourOptionDAO;
 import br.com.transferr.core.exceptions.ValidationException;
+import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.model.TourOption;
 
 
@@ -19,6 +20,8 @@ public class RoleTourOption extends RoleSuperClass<TourOption> {
 	}
 	@Autowired
 	private TourOptionDAO tourOptionDAO;
+	@Autowired
+	private RoleDriver roleDriver;
 	@Override
 	public TourOption insert(TourOption entidade) throws ValidationException {
 		return tourOptionDAO.insert(entidade);
@@ -45,5 +48,17 @@ public class RoleTourOption extends RoleSuperClass<TourOption> {
 	public List<TourOption> getByLocation(long idLocation) {
 		return tourOptionDAO.getByLocation(idLocation);
 	}
+	
+	
+	
+	public List<TourOption> getTourOptionByDriver(long idDriver) throws ValidationException {
+		Driver driver = roleDriver.find(idDriver);
+		if(driver == null) {
+			System.err.println("No Driver with id "+idDriver);
+			throw new ValidationException("Nenhum motorista encontrado.");
+		}
+		return tourOptionDAO.getByLocation(driver.getGroup().getLocation().getId());
+	}
+	
 
 }

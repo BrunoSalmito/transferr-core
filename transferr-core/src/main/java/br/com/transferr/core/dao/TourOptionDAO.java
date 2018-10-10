@@ -43,5 +43,20 @@ public class TourOptionDAO extends SuperClassDAO<TourOption> {
 			return null;
 		}
 	}
+	
+	/*
+	public List<TourOption> getTourOptionByDriver(long idDriver) {
+		try {
+			StringBuilder query = new StringBuilder("SELECT t FROM TourOption t INNER JOIN Driver d WHERE").append("\n");
+			query.append(" t.location.id = d.group.location.id").append("\n");
+			query.append(" AND d.id = :idDriver").append("\n");
+			return manager.createQuery(query.toString(), TourOption.class)
+					.setParameter("idDriver", idDriver)
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	*/
 
 }
