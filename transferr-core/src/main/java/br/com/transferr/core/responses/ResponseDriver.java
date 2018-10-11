@@ -10,6 +10,7 @@ public class ResponseDriver {
 	private String phone;
 	private String whatsapp;
 	private String nameOfCar;
+	private Boolean alwaysOnMap;
 	public String getName() {
 		return name;
 	}
@@ -63,6 +64,13 @@ public class ResponseDriver {
 	}
 	public ResponseDriver setNameOfCar(String nameOfCar) {
 		this.nameOfCar = nameOfCar;
+		return this;
+	}
+	public Boolean getAlwaysOnMap() {
+		return alwaysOnMap;
+	}
+	public ResponseDriver setAlwaysOnMap(Boolean alwaysOnMap) {
+		this.alwaysOnMap = alwaysOnMap;
 		return this;
 	}
 	

@@ -1,5 +1,8 @@
 package br.com.transferr.core.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -13,7 +16,10 @@ import br.com.transferr.core.metadata.CoordinatesAmplitude;
 import br.com.transferr.core.metadata.CoordinatesQuadrant;
 import br.com.transferr.core.model.Car;
 import br.com.transferr.core.responses.ResponseCarsOnline;
+import br.com.transferr.core.role.RoleParametros;
 import br.com.transferr.core.util.CoordinatesUtil;
+import br.com.transferr.core.util.DateUtil;
+import br.com.transferr.core.util.HelperVariables;
 
 @Repository
 public class CarDAO extends SuperClassDAO<Car> {
@@ -47,7 +53,11 @@ public class CarDAO extends SuperClassDAO<Car> {
 		StringBuilder where = new StringBuilder();
 		query.append("SELECT                         ").append("\n");
 		query.append("    car.id as id,              ").append("\n");
-	    query.append("    car.photo as photo,              ").append("\n");
+		String param = RoleParametros.paramUrlFoto; 
+
+		String select =	"'"+param+HelperVariables.docBaseRepoFiles+"/car/'||car.id||'/"+HelperVariables.DEFAULT_NAME_FOR_PHOTO+"'";
+
+	    query.append("    "+select+" as photo,              ").append("\n");
 	    query.append("    car.model as model,        ").append("\n");
 	    query.append("    car.car_identity as placa, ").append("\n");
 	    query.append("    car.color as cor ,         ").append("\n");
@@ -63,10 +73,16 @@ public class CarDAO extends SuperClassDAO<Car> {
 	    query.append("    INNER JOIN coordinate_car co ON  ").append("\n");
 	    query.append("      co.id_car = car.id             ").append("\n");
 	    where.append("  WHERE                              ").append("\n");
-	    where.append("     car.STATUS <> 2                 ").append("\n");
+	    
+	    if(DateUtil.isInDefaultHourToMap()) {
+	    	where.append("( car.STATUS <> 2   or car.always_on_map = true)  ").append("\n");
+	    }else {
+	    	where.append(" car.STATUS <> 2 ").append("\n");
+	    }
+	    
 	    CoordinatesAmplitude amplitude 	= CoordinatesUtil.defineCoordinates(coordinates);
 	    where.append(" AND (co.longitude BETWEEN ").append(amplitude.getMinLongitude()).append(" AND ").append(amplitude.getMaxLongitude()).append(") ").append(" AND ")
-		 .append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
+		.append(" (co.latitude  BETWEEN ").append(amplitude.getMinLatitude()) .append(" AND ").append(amplitude.getMaxLatitude()).append(") ");
 	    query.append(where.toString());	
 	   
 	    Query qry = getManager().createNativeQuery(query.toString(), ResponseCarsOnline.NAME);
@@ -77,6 +93,8 @@ public class CarDAO extends SuperClassDAO<Car> {
 			return null;
 		}
 	}
+	
+
 	
 	public Car getCarByUser(Long idUser){
 		String jpql = "FROM Car WHERE driver.user.id = :idUser";
