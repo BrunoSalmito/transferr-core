@@ -107,20 +107,27 @@ public class CarDAO extends SuperClassDAO<Car> {
 		}
 	}
 	
-	 public void updateStatusCar(Long idCar, EnumStatus status){
-	    	
-	    	String hqlUpdate = "update Car c set c.status = :status where c.id = :idCar";
-	    	// or String hqlUpdate = "update Customer set name = :newName where name = :oldName";
-	    	manager.createQuery( hqlUpdate )
-	    	        .setParameter( "status", status )
-	    	        .setParameter( "idCar", idCar )
-	    	        .executeUpdate();
-	    	//tx.commit();
-	    	//session.close();
-	    }
+	public void updateStatusCar(Long idCar, EnumStatus status){
+
+		String hqlUpdate = "update Car c set c.status = :status where c.id = :idCar";
+		// or String hqlUpdate = "update Customer set name = :newName where name = :oldName";
+		manager.createQuery( hqlUpdate )
+		.setParameter( "status", status )
+		.setParameter( "idCar", idCar )
+		.executeUpdate();
+		//tx.commit();
+		//session.close();
+	}
 	
-	
-	
+
+	 public void updateAlwaysOnMap(Long idCar, boolean always){
+		 String hqlUpdate = "update Car c set c.alwaysOnMap = :always where c.id = :idCar";
+		 manager.createQuery( hqlUpdate )
+		        .setParameter( "always", always )
+		        .setParameter( "idCar", idCar )
+		        .executeUpdate();
+
+	 }
 	
 
 }
