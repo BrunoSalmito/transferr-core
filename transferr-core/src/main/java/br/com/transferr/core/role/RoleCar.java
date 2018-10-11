@@ -96,5 +96,9 @@ public class RoleCar extends RoleSuperClass<Car> {
 		}
 	}
 	
+	public void updateAlwaysOnMap(Long idCar, boolean always){
+		carDAO.updateAlwaysOnMap(idCar, always);
+	}
+	
 	
 }
