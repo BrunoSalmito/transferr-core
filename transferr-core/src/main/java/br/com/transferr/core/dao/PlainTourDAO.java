@@ -2,13 +2,11 @@ package br.com.transferr.core.dao;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.NoResultException;
-
 import org.springframework.stereotype.Repository;
-
 import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.model.PlainTour;
+import br.com.transferr.core.util.DateUtil;
 
 
 
@@ -59,12 +57,13 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.location.id =").append(" :idLocation");
 		query.append(" AND pt.tourOption.id !=").append(" :idTour");
-		query.append(" AND pt.date > :today");
+		query.append(" AND (pt.date > :today AND pt.date < :dtLimite)");
 		query.append(" ORDER BY date ASC");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("idLocation", idLocation)
 					.setParameter("idTour", idTour)
+					.setParameter("dtLimite", DateUtil.addDaysForADate(new Date(), 15))
 					.setParameter("today", new Date())
 					.getResultList();
 		} catch (NoResultException e) {
@@ -75,12 +74,12 @@ public class PlainTourDAO extends SuperClassDAO<PlainTour> {
 	public List<PlainTour> byTourOption(long idTourOption) {
 		StringBuilder query = new StringBuilder("FROM PlainTour pt WHERE ").append("\n");
 		query.append(" pt.tourOption.id =").append(" :idTourOption");
-		query.append(" AND pt.date > :today");
+		query.append(" AND (pt.date > :today AND pt.date < :dtLimite)");
 		query.append(" ORDER BY date ASC");
-		//query.append(" ORDER BY random()");
 		try {
 			return manager.createQuery(query.toString(), PlainTour.class)
 					.setParameter("idTourOption", idTourOption)
+					.setParameter("dtLimite", DateUtil.addDaysForADate(new Date(), 15))
 					.setParameter("today", new Date())
 					.getResultList();
 		} catch (NoResultException e) {

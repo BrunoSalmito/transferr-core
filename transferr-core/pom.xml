@@ -184,6 +184,12 @@
 		    <version>1.7.3</version>
 		    <scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.9</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.powermock/powermock-core -->
 		<dependency>
 		    <groupId>org.powermock</groupId>
