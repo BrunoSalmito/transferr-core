@@ -4,13 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.codehaus.jackson.annotate.JsonIgnore;
+import br.com.transferr.core.enums.EnumTypeOfDriver;
 
 
 @Entity
@@ -51,6 +52,10 @@ public class Driver  extends Entidade{
 	//@JsonIgnore
 	@OneToOne(mappedBy="driver",fetch=FetchType.EAGER)
 	private Car car;
+	@Column(name="TYPE_OF_DRIVER",nullable=false)
+	@Enumerated(EnumType.ORDINAL)
+	@org.hibernate.annotations.ColumnDefault("0")
+	private EnumTypeOfDriver typeOfDriver = EnumTypeOfDriver.DRIVER;
 	
 	public Grouping getGroup() {
 		return group;
@@ -123,6 +128,14 @@ public class Driver  extends Entidade{
 
 	public void setDdd(Integer ddd) {
 		this.ddd = ddd;
+	}
+
+	public EnumTypeOfDriver getTypeOfDriver() {
+		return typeOfDriver;
+	}
+
+	public void setTypeOfDriver(EnumTypeOfDriver typeOfDriver) {
+		this.typeOfDriver = typeOfDriver;
 	}
 	
 	
