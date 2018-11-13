@@ -2,7 +2,9 @@ package br.com.transferr.core.enums;
 
 public enum EnumTypeCar {
 
-	X_4,BUGGY
+	X_4,
+	BUGGY,
+	BUS
 }
 
 
