@@ -4,6 +4,8 @@ import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.SqlResultSetMapping;
+
+import br.com.transferr.core.enums.EnumTypeCar;
 @SqlResultSetMapping(
 		name=ResponseCarsOnline.NAME,
 		classes = @ConstructorResult(
@@ -19,7 +21,8 @@ import javax.persistence.SqlResultSetMapping;
 					@ColumnResult(name="longitude"			,type=Double.class),
 					@ColumnResult(name="phone"			    ,type=Long.class),
 					@ColumnResult(name="whatsapp"			,type=Long.class),
-					@ColumnResult(name="ddd"			    ,type=Integer.class)
+					@ColumnResult(name="ddd"			    ,type=Integer.class),
+					@ColumnResult(name="type_car"			    ,type=Integer.class)
 				    
 					
 			}
@@ -40,6 +43,7 @@ public class ResponseCarsOnline {
 	private Long phone;
 	private Long whatsapp;
 	private Integer ddd;
+	private EnumTypeCar type_car;
 	
 	public ResponseCarsOnline() {
 		
@@ -47,7 +51,7 @@ public class ResponseCarsOnline {
 	
 	
 	public ResponseCarsOnline(Long id, String photo, String model, String placa, String cor, String name,
-			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd) {
+			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd,Integer type_car) {
 		super();
 		this.id = id;
 		this.photo = photo;
@@ -60,6 +64,7 @@ public class ResponseCarsOnline {
 		this.phone = phone;
 		this.whatsapp = whatsapp;
 		this.ddd = ddd;
+		this.type_car = EnumTypeCar.values()[type_car];
 	}
 	public String getPhoto() {
 		return photo;
@@ -139,6 +144,16 @@ public class ResponseCarsOnline {
 
 	public void setDdd(Integer ddd) {
 		this.ddd = ddd;
+	}
+
+
+	public EnumTypeCar getType_car() {
+		return type_car;
+	}
+
+
+	public void setType_car(EnumTypeCar type_car) {
+		this.type_car = type_car;
 	}
 	
 

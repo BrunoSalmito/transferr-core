@@ -66,7 +66,8 @@ public class CarDAO extends SuperClassDAO<Car> {
 	    query.append("    co.longitude AS longitude,  ").append("\n");
 	    query.append("    driver.phone AS phone,  ").append("\n");
 	    query.append("    driver.whatsapp AS whatsapp,  ").append("\n");
-	    query.append("    driver.ddd AS ddd  ").append("\n");
+	    query.append("    driver.ddd AS ddd,  ").append("\n");
+	    query.append("    car.type_car AS type_car  ").append("\n");
 	    query.append("  FROM car                     ").append("\n");
 	    query.append("    INNER JOIN driver ON       ").append("\n");
 	    query.append("      car.id_driver = driver.id").append("\n");
