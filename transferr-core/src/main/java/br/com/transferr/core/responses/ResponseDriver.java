@@ -1,5 +1,7 @@
 package br.com.transferr.core.responses;
 
+import br.com.transferr.core.enums.EnumTypeOfDriver;
+
 public class ResponseDriver {
 
 	private String name;
@@ -11,6 +13,7 @@ public class ResponseDriver {
 	private String whatsapp;
 	private String nameOfCar;
 	private Boolean alwaysOnMap;
+	private EnumTypeOfDriver type;
 	public String getName() {
 		return name;
 	}
@@ -71,6 +74,13 @@ public class ResponseDriver {
 	}
 	public ResponseDriver setAlwaysOnMap(Boolean alwaysOnMap) {
 		this.alwaysOnMap = alwaysOnMap;
+		return this;
+	}
+	public EnumTypeOfDriver getType() {
+		return type;
+	}
+	public ResponseDriver setType(EnumTypeOfDriver type) {
+		this.type = type;
 		return this;
 	}
 	
