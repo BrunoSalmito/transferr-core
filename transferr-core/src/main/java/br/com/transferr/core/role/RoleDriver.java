@@ -133,7 +133,7 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 			ResponseDriver resp = new ResponseDriver()
 				.setBirthDate("Idade 36")
 				.setCountryRegister(driver.getCar().getCarIdentity())
-				.setEmail(driver.getUser().getEmail())
+				.setEmail(driver.getUser() != null ? driver.getUser().getEmail():"")
 				.setImgProfileUrl(driver.getCar().getPhoto())
 				.setName(driver.getName())
 				.setWhatsapp(String.valueOf(driver.getWhatsapp()))
