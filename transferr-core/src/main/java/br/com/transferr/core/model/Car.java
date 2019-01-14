@@ -11,7 +11,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//import org.codehaus.jackson.annotate.JsonIgnore;
 
 //import org.hibernate.annotations.ColumnDefault;
 
