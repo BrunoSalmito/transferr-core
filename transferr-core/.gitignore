@@ -2,4 +2,5 @@
 .classpath
 /.settings/
 /bin/
+application.properties
 *.project
