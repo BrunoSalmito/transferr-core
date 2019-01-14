@@ -83,7 +83,7 @@ public class RoleUser extends RoleSuperClass<User> {
 			String senhaCript     = user.getPassword();
 			String decripted      = decryptPasswordOrEmail(senhaCript);
 			String conteudo	      = emailContent(user,decripted);
-			String AssuntoDoEmail = "Recuperação de Senha iDoctor Brasil.";
+			String AssuntoDoEmail = "Recuperação de Senha App Boora.";
 			try {
 				roleEmail.sendEmailRecoverSenha(email, AssuntoDoEmail, conteudo);
 			} catch (MailException e) {
