@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import br.com.transferr.core.enums.Color;
+
 //import org.hibernate.annotations.ColumnDefault;
 
 import br.com.transferr.core.enums.EnumStatus;
@@ -46,7 +48,8 @@ public class Car  extends Entidade{
 	private String carIdentity;
 	
 	@Column(name = "color")
-	private String color;
+	@Enumerated(EnumType.STRING)
+	private Color color;
 	
 	@Column(name = "fl_external_Equip")
 	private Boolean externalEquip;
@@ -91,13 +94,7 @@ public class Car  extends Entidade{
 		this.carIdentity = carIdentity;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
+	
 
 	public Boolean getExternalEquip() {
 		return externalEquip;
@@ -161,6 +158,14 @@ public class Car  extends Entidade{
 
 	public void setAlwaysOnMap(boolean alwaysOnMap) {
 		this.alwaysOnMap = alwaysOnMap;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 	
 	

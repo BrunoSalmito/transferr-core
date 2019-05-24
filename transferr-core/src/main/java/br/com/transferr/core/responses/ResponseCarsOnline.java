@@ -1,5 +1,7 @@
 package br.com.transferr.core.responses;
 
+import java.util.Date;
+
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.MappedSuperclass;
@@ -22,7 +24,8 @@ import br.com.transferr.core.enums.EnumTypeCar;
 					@ColumnResult(name="phone"			    ,type=Long.class),
 					@ColumnResult(name="whatsapp"			,type=Long.class),
 					@ColumnResult(name="ddd"			    ,type=Integer.class),
-					@ColumnResult(name="type_car"			    ,type=Integer.class)
+					@ColumnResult(name="type_car"			,type=Integer.class),
+					@ColumnResult(name="date"			    ,type=Date.class)
 				    
 					
 			}
@@ -44,6 +47,7 @@ public class ResponseCarsOnline {
 	private Long whatsapp;
 	private Integer ddd;
 	private EnumTypeCar type_car;
+	private Date date;
 	
 	public ResponseCarsOnline() {
 		
@@ -51,7 +55,7 @@ public class ResponseCarsOnline {
 	
 	
 	public ResponseCarsOnline(Long id, String photo, String model, String placa, String cor, String name,
-			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd,Integer type_car) {
+			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd,Integer type_car, Date date) {
 		super();
 		this.id = id;
 		this.photo = photo;
@@ -65,6 +69,7 @@ public class ResponseCarsOnline {
 		this.whatsapp = whatsapp;
 		this.ddd = ddd;
 		this.type_car = EnumTypeCar.values()[type_car];
+		this.date = date;
 	}
 	public String getPhoto() {
 		return photo;
@@ -154,6 +159,16 @@ public class ResponseCarsOnline {
 
 	public void setType_car(EnumTypeCar type_car) {
 		this.type_car = type_car;
+	}
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 
