@@ -1,13 +1,16 @@
 package br.com.transferr.core.responses;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.SqlResultSetMapping;
 
+import br.com.transferr.core.enums.EnumLanguage;
 import br.com.transferr.core.enums.EnumTypeCar;
+import br.com.transferr.core.util.DateUtil;
 @SqlResultSetMapping(
 		name=ResponseCarsOnline.NAME,
 		classes = @ConstructorResult(
@@ -47,7 +50,7 @@ public class ResponseCarsOnline {
 	private Long whatsapp;
 	private Integer ddd;
 	private EnumTypeCar type_car;
-	private Date date;
+	private Map<EnumLanguage, String> date;
 	
 	public ResponseCarsOnline() {
 		
@@ -69,7 +72,7 @@ public class ResponseCarsOnline {
 		this.whatsapp = whatsapp;
 		this.ddd = ddd;
 		this.type_car = EnumTypeCar.values()[type_car];
-		this.date = date;
+		this.date = DateUtil.getApproximateDate(date);
 	}
 	public String getPhoto() {
 		return photo;
@@ -162,15 +165,14 @@ public class ResponseCarsOnline {
 	}
 
 
-	public Date getDate() {
+	public Map<EnumLanguage, String> getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
+	public void setDate(Map<EnumLanguage, String> date) {
 		this.date = date;
 	}
-	
 
 	
 }
