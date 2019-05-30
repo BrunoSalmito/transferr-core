@@ -28,7 +28,8 @@ import br.com.transferr.core.util.DateUtil;
 					@ColumnResult(name="whatsapp"			,type=Long.class),
 					@ColumnResult(name="ddd"			    ,type=Integer.class),
 					@ColumnResult(name="type_car"			,type=Integer.class),
-					@ColumnResult(name="date"			    ,type=Date.class)
+					@ColumnResult(name="date"			    ,type=Date.class),
+					@ColumnResult(name="driver_id"			,type=Long.class)
 				    
 					
 			}
@@ -51,6 +52,7 @@ public class ResponseCarsOnline {
 	private Integer ddd;
 	private EnumTypeCar type_car;
 	private Map<EnumLanguage, String> date;
+	private Long driverId;
 	
 	public ResponseCarsOnline() {
 		
@@ -58,7 +60,7 @@ public class ResponseCarsOnline {
 	
 	
 	public ResponseCarsOnline(Long id, String photo, String model, String placa, String cor, String name,
-			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd,Integer type_car, Date date) {
+			Double latitude, Double longitude,Long phone, Long whatsapp,Integer ddd,Integer type_car, Date date, Long driverId) {
 		super();
 		this.id = id;
 		this.photo = photo;
@@ -73,6 +75,7 @@ public class ResponseCarsOnline {
 		this.ddd = ddd;
 		this.type_car = EnumTypeCar.values()[type_car];
 		this.date = DateUtil.getApproximateDate(date);
+		this.driverId = driverId;
 	}
 	public String getPhoto() {
 		return photo;
@@ -172,6 +175,16 @@ public class ResponseCarsOnline {
 
 	public void setDate(Map<EnumLanguage, String> date) {
 		this.date = date;
+	}
+
+
+	public Long getDriverId() {
+		return driverId;
+	}
+
+
+	public void setDriverId(Long driverId) {
+		this.driverId = driverId;
 	}
 
 	

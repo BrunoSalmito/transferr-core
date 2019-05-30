@@ -139,7 +139,8 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 				.setWhatsapp(String.valueOf(driver.getWhatsapp()))
 				.setNameOfCar(driver.getCar().getModel())
 				.setType(driver.getTypeOfDriver())
-				.setAlwaysOnMap(driver.getCar().isAlwaysOnMap());
+				.setAlwaysOnMap(driver.getCar().isAlwaysOnMap())
+				.setId(driver.getId());;
 			
 			String phoneNumber = "Não informado.";
 			if(driver.getDdd() != null && driver.getPhone() != null) {

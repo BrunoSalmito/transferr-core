@@ -4,6 +4,7 @@ import br.com.transferr.core.enums.EnumTypeOfDriver;
 
 public class ResponseDriver {
 
+	private Long id;
 	private String name;
 	private String birthDate;
 	private String countryRegister;
@@ -81,6 +82,13 @@ public class ResponseDriver {
 	}
 	public ResponseDriver setType(EnumTypeOfDriver type) {
 		this.type = type;
+		return this;
+	}
+	public Long getId() {
+		return id;
+	}
+	public ResponseDriver setId(Long id) {
+		this.id = id;
 		return this;
 	}
 	
