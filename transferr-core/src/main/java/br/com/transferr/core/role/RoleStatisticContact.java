@@ -45,7 +45,8 @@ public class RoleStatisticContact extends RoleSuperClass<StatisticContact> {
 	 * @param statisticContact
 	 */
 	public void registerIntetionOfContact(final StatisticContact statisticContact) {
-		//new Thread(()->{
+		
+		try {
 			if(statisticContact != null) {
 				StatisticContact stContact = new StatisticContact();
 				Place place = GeoCodeAPIGoogle.getPlaceByCoordinates(statisticContact.getLongitude(), statisticContact.getLatitude());
@@ -63,7 +64,7 @@ public class RoleStatisticContact extends RoleSuperClass<StatisticContact> {
 				daoStatisticContact.insert(stContact);
 			}
 			
-		//}).start();
+		}catch (Exception e) {}
 	}
 
 }

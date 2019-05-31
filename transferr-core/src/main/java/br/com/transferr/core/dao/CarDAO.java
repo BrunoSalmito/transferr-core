@@ -34,7 +34,7 @@ public class CarDAO extends SuperClassDAO<Car> {
 	}
 
 
-	public Car getCarByDriver(String idDriver) {
+	public Car getCarByDriver(Long idDriver) {
 		TypedQuery<Car> qry = getManager().createNamedQuery(Car.FIND_BY_DRIVER, Car.class)
 				.setParameter("idDriver", idDriver);
 

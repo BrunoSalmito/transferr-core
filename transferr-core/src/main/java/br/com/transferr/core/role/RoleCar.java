@@ -48,8 +48,13 @@ public class RoleCar extends RoleSuperClass<Car> {
 		return carDAO.find(codigo);
 	}
 
-	public Car findCarByDriver(String idDriver) {
-		return carDAO.getCarByDriver(idDriver);
+	public Car findCarByDriver(Long idDriver) throws ValidationException{
+		
+		Car carByDriver = carDAO.getCarByDriver(idDriver);
+		if(carByDriver == null) {
+			throw new ValidationException("Carro não encontrado");
+		}
+		return carByDriver;
 	}
 	
 	public Car getCarByUser(Long idUser) throws ValidationException{
