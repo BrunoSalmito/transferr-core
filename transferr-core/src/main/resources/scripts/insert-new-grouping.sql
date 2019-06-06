@@ -70,19 +70,19 @@ values ('PLATE',COLOR,false,'Model',NR_SEATS,'',STATUS,TYPE_CAR,ID_DRIVER,false)
 */
 --TEST driver from 5 until 9
 insert into car (car_identity,color,fl_external_equip,model,nr_seats,photo,status,type_car,id_driver,always_on_map)
-values ('HRX-3333','WHITE',false,'HILUX',7,'',2,0,5,false);
+values ('HRX-3333','WHITE',false,'HILUX',7,'',2,0,5,true);
 
 insert into car (car_identity,color,fl_external_equip,model,nr_seats,photo,status,type_car,id_driver,always_on_map)
-values ('HVR-3333','BLACK',false,'BUGGY',4,'',2,1,6,false);
+values ('HVR-3333','BLACK',false,'BUGGY',4,'',2,1,6,true);
 
 insert into car (car_identity,color,fl_external_equip,model,nr_seats,photo,status,type_car,id_driver,always_on_map)
-values ('GGG-4321','BLACK',false,'JEEP',4,'',2,0,7,false);
+values ('GGG-4321','BLACK',false,'JEEP',4,'',2,0,7,true);
 
 insert into car (car_identity,color,fl_external_equip,model,nr_seats,photo,status,type_car,id_driver,always_on_map)
-values ('HHH-4444','YELLOW',false,'AMAROK',4,'',2,0,8,false);
+values ('HHH-4444','YELLOW',false,'AMAROK',4,'',2,0,8,true);
 
 insert into car (car_identity,color,fl_external_equip,model,nr_seats,photo,status,type_car,id_driver,always_on_map)
-values ('HYZ-4578','PURPLE',false,'ÔNIBUS',70,'',2,2,9,false);
+values ('HYZ-4578','PURPLE',false,'ÔNIBUS',70,'',2,2,9,true);
 
 
 

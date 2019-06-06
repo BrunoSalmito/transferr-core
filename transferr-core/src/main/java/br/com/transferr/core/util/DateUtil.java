@@ -39,13 +39,14 @@ public class DateUtil {
 		long inSecunds = TimeUnit.MILLISECONDS.toSeconds(difference);
 		long inHours   = TimeUnit.MILLISECONDS.toHours(difference);
 		Map<EnumLanguage, String> result = new HashMap<>();
-		String valueForES = "Actualizado ahora";
-		String valueForPT = "Atualizado agora";
-		String valueForEN = "Updated now";
+		String valueForES = "";
+		String valueForPT = "";
+		String valueForEN = "";
+		
 		if(inSecunds < 10) {
-			valueForES = "Actualizado hace "+inSecunds+" segundos";
-		    valueForPT = "Atualizado há "+inSecunds+" segundos atrás";  
-		    valueForEN = "Updated "+inSecunds+" seconds ago";     
+			valueForES = "Actualizado ahora";
+		    valueForPT = "Atualizado agora";   
+		    valueForEN = "Updated now";      
 		}else
 		if(inSecunds < 59 ) {
 			valueForES = "Actualizado hace "+inSecunds+" segundos";
@@ -69,7 +70,7 @@ public class DateUtil {
 		}else {
 			//Some days
 		    valueForES = "Actualizado hace pocos días";
-		    valueForPT = "há alguns dias";
+		    valueForPT = "Atualizado há alguns dias";
 		    valueForEN = "Updated some days ago";
 		}	
 		result.put(EnumLanguage.EN_USA, valueForEN);
