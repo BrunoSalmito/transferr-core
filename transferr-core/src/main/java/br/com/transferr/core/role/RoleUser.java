@@ -8,6 +8,7 @@ import br.com.transferr.core.dao.UserDAO;
 import br.com.transferr.core.exceptions.ValidationException;
 import br.com.transferr.core.mail.MailException;
 import br.com.transferr.core.model.User;
+import br.com.transferr.core.responses.ResponseContactUs;
 import br.com.transferr.core.responses.ResponseLogin;
 
 @Service
@@ -143,6 +144,29 @@ public class RoleUser extends RoleSuperClass<User> {
 			throw new ValidationException("Usuário não cadastrado na base de dados.");
 		}
 }
+	
+	
+	public String contactUsByEmail(ResponseContactUs responseContactUs) throws ValidationException {
+		
+		try {
+			StringBuilder conteudo = new StringBuilder();
+			conteudo.append("Olá equipe Boora, parece que alguém quer fazer contato.").append("\n")
+			.append(responseContactUs.getName()).append(" entrou em contato pelo site e nos enviou a seguinte mensagem: ").append("\n")
+			.append("\n").append(responseContactUs.getMessage()).append("\n")
+			.append("Dados:\n")
+			.append("\tNome: ").append(responseContactUs.getName()).append("\n")
+			.append("\tE-mail: ").append(responseContactUs.getEmail()).append("\n")
+			.append("\tContato: ").append(responseContactUs.getPhone()).append("\n\n")
+			.append("Parabéns a todos pelo engajamento e não vamos perder esse cliente.");
+			conteudo.append("\nMensagem enviada automaticamente.");
+			roleEmail.sendEmailForContactUs("contact.boora@gmail.com", "PEDIDO DE CONTATO PELO SITE - BOORA", conteudo.toString() );
+		} catch (MailException e) {
+			e.printStackTrace();
+			throw new ValidationException("Erro ao enviar o email de recuperação de senha: "+e.getMessage());
+		}
+		return "Um e-mail foi enviado pra você.";
+		
+	}
 	
 	
 

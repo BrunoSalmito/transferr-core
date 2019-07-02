@@ -31,5 +31,14 @@ public class RoleEmail {
 //		Sender sender = new Sender(port, host, uname, pws);
 //		sender.send(conteudo, AssuntoDoEmail, roleParametros.getEnderecoEmailSuporte(), emailDestino);
 //	}
+	
+	public void sendEmailForContactUs(String emailDestino, String AssuntoDoEmail, String conteudo) throws MailException {
+		int port 		= roleParametros.getPortHostEmail();
+		String host		= roleParametros.getHostEmail();
+		String uname	= roleParametros.getUsuarioEmail();
+		String pws		= roleParametros.getSenhaEmail();
+		Sender sender = new Sender(port, host, uname, pws);
+		sender.send(conteudo, AssuntoDoEmail, roleParametros.getUsuarioEmail(), emailDestino);
+	}
 
 }
