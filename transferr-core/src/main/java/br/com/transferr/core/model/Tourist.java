@@ -12,11 +12,15 @@ import javax.persistence.TemporalType;
 
 import br.com.transferr.core.enums.EnumDeviceType;
 @NamedQueries({
-	@NamedQuery(name=Tourist.FIND_BY_EMAIL,query="FROM Touris WHERE email = :email")
+	@NamedQuery(name=Tourist.FIND_BY_EMAIL,query="FROM Tourist t WHERE t.email = :email")
 })
 @Entity
 public class Tourist extends Entidade{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -181349764154515256L;
 	public static final String FIND_BY_EMAIL = "br.com.transferr.core.model.Tourist.findByEmail";
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date register;
