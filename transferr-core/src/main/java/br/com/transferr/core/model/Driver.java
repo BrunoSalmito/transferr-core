@@ -18,6 +18,12 @@ import br.com.transferr.core.enums.EnumTypeOfDriver;
 @Table(name="driver")
 public class Driver  extends Entidade{
 
+	enum TypeID{
+		OTHER,
+		CPF,
+		RG,
+		CNPJ
+	}
 	private static final long serialVersionUID = 7098607490399840681L;
 
 	public Driver() {
@@ -37,7 +43,12 @@ public class Driver  extends Entidade{
 	
 	@Column(name = "ddd")
 	private Integer ddd;
-	
+
+	@Column(name = "identity", nullable=true)
+	private String identity = "";
+	@Column(name = "type_id", nullable=true)
+	@Enumerated(EnumType.ORDINAL)
+	private TypeID typeId = TypeID.OTHER;
 	
 	@Column(name = "whatsapp")
 	private Long whatsapp;
@@ -136,6 +147,22 @@ public class Driver  extends Entidade{
 
 	public void setTypeOfDriver(EnumTypeOfDriver typeOfDriver) {
 		this.typeOfDriver = typeOfDriver;
+	}
+
+	public String getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+
+	public TypeID getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(TypeID typeId) {
+		this.typeId = typeId;
 	}
 	
 	
