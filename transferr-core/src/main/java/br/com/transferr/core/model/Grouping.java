@@ -4,13 +4,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="GROUPING")
 public class Grouping   extends Entidade{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1483850633945779688L;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "stateID")
