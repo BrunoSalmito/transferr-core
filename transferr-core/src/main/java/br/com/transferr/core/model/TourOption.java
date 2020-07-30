@@ -3,26 +3,24 @@ package br.com.transferr.core.model;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapKeyEnumerated;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.FilterJoinTable;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.Where;
 
 import br.com.transferr.core.enums.EnumLanguage;
 
@@ -52,6 +50,15 @@ public class TourOption  extends Entidade {
 	@Column(name = "short_description")
 	private String shortDescription;
 	
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.EAGER)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JoinTable(
+	  name = "TOUR_DRIVER", 
+	  joinColumns = @JoinColumn(name = "ID_TOUR_OPTION"), 
+	  inverseJoinColumns = @JoinColumn(name = "ID_DRIVER"))
+	Set<Driver> drivers;
+	
 
 
 	
@@ -66,8 +73,9 @@ public class TourOption  extends Entidade {
 		return descriptionLanguage;
 	}
 
-	public void setDescriptionLanguage(Map<EnumLanguage, String> descriptionLanguage) {
+	public TourOption setDescriptionLanguage(Map<EnumLanguage, String> descriptionLanguage) {
 		this.descriptionLanguage = descriptionLanguage;
+		return this;
 	}
 	
 	@ElementCollection
@@ -84,8 +92,9 @@ public class TourOption  extends Entidade {
 		return shortDescriptionLanguage;
 	}
 
-	public void setShortDescriptionLanguage(Map<EnumLanguage, String> shortDescriptionLanguage) {
+	public TourOption setShortDescriptionLanguage(Map<EnumLanguage, String> shortDescriptionLanguage) {
 		this.shortDescriptionLanguage = shortDescriptionLanguage;
+		return this;
 	}
 
 	public String getName() {
@@ -96,36 +105,41 @@ public class TourOption  extends Entidade {
 		return profileUrl;
 	}
 
-	public void setProfileUrl(String profileUrl) {
+	public TourOption setProfileUrl(String profileUrl) {
 		this.profileUrl = profileUrl;
+		return this;
 	}
 
-	public void setName(String name) {
+	public TourOption setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public TourOption setDescription(String description) {
 		this.description = description;
+		return this;
 	}
 
 	public BigDecimal getValue() {
 		return value;
 	}
 
-	public void setValue(BigDecimal value) {
+	public TourOption setValue(BigDecimal value) {
 		this.value = value;
+		return this;
 	}
 
 	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(Location location) {
+	public TourOption setLocation(Location location) {
 		this.location = location;
+		return this;
 	}
 	
 	@ElementCollection(fetch=FetchType.EAGER)
@@ -137,16 +151,27 @@ public class TourOption  extends Entidade {
 		return images;
 	}
 
-	public void setImages(List<String> images) {
+	public TourOption setImages(List<String> images) {
 		this.images = images;
+		return this;
 	}
 
 	public String getShortDescription() {
 		return shortDescription;
 	}
 
-	public void setShortDescription(String shortDescription) {
+	public TourOption setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
+		return this;
+	}
+
+	public Set<Driver> getDrivers() {
+		return drivers;
+	}
+
+	public TourOption setDrivers(Set<Driver> drivers) {
+		this.drivers = drivers;
+		return this;
 	}
 	
 	

@@ -1,5 +1,6 @@
 package br.com.transferr.core.role;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,15 @@ public class RoleTourOption extends RoleSuperClass<TourOption> {
 	}
 	
 	public List<TourOption> getAll() {
-		return tourOptionDAO.getAll();
+		System.out.println("Role get all tour option");
+		List<TourOption> list = tourOptionDAO.getAll();
+//		List<TourOption> listToReturn = new ArrayList<>();
+//		list.forEach(tour ->{
+//			TourOption t = new TourOption();
+//			t.setDescription(description);
+//			listToReturn.add(t);
+//		});
+		return list;
 	}
 	public List<TourOption> getByLocation(long idLocation) {
 		return tourOptionDAO.getByLocation(idLocation);

@@ -1,5 +1,6 @@
 package br.com.transferr.core.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -28,7 +29,9 @@ public class TourOptionDAO extends SuperClassDAO<TourOption> {
 		try {
 			return manager.createQuery("FROM TourOption", TourOption.class).getResultList();
 		} catch (NoResultException e) {
-			return null;
+			return new ArrayList<>();
+		}catch (Exception e) {
+			throw e;
 		}
 	}
 	

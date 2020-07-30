@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import br.com.transferr.core.model.Car;
 import br.com.transferr.core.model.CoordinateCar;
 import br.com.transferr.core.model.Driver;
 import br.com.transferr.core.model.PlainTour;
+import br.com.transferr.core.model.TourOption;
 import br.com.transferr.core.responses.ResponseDriver;
 import br.com.transferr.core.responses.ResponseDriverByTourOption;
 import br.com.transferr.core.responses.ResponseDrivers;
@@ -35,6 +37,10 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 	private DriverDAO driverDAO;
 	@Autowired
 	private PlainTourDAO plainTourDAO;
+	
+	@Autowired
+	private RoleTourOption roleTourOption;
+	
 	@Override
 	public Driver insert(Driver entidade) throws ValidationException {
 		return driverDAO.insert(entidade);
@@ -159,6 +165,40 @@ public class RoleDriver  extends RoleSuperClass<Driver> {
 	
 	public Driver findByUserID(long userId) {
 		return driverDAO.findByUserID(userId);
+	}
+	
+	public ResponseDrivers listByTourOption(final Long idTourOption) throws ValidationException {
+		ResponseDrivers responseDrivers = new ResponseDrivers();
+		TourOption tourOption = roleTourOption.find(idTourOption);
+		if(tourOption != null) {
+			Set<Driver> drivers = tourOption.getDrivers();
+			drivers.forEach(driver->{
+				ResponseDriver resp = new ResponseDriver()
+						.setBirthDate("")
+						.setCountryRegister(driver.getCar().getCarIdentity())
+						.setEmail(driver.getUser() != null ? driver.getUser().getEmail():"")
+						.setImgProfileUrl(driver.getCar().getPhoto())
+						.setName(driver.getName())
+						.setWhatsapp(String.valueOf(driver.getWhatsapp()))
+						.setNameOfCar(driver.getCar().getModel())
+						.setType(driver.getTypeOfDriver())
+						.setAlwaysOnMap(driver.getCar().isAlwaysOnMap())
+						.setId(driver.getId());;
+					
+					String phoneNumber = "Não informado.";
+					if(driver.getDdd() != null && driver.getPhone() != null) {
+						Integer ddd = driver.getDdd();
+						Long phone = driver.getPhone();
+						if(ddd > 0 && phone > 0) {
+							//phoneNumber = String.format("(%s) %s", ddd,phone);
+							phoneNumber = String.format("+55%s%s", ddd,phone);
+						}
+					}
+					resp.setPhone(phoneNumber);
+					responseDrivers.getDrivers().add(resp);
+				});
+		}
+		return responseDrivers;
 	}
 	
 }

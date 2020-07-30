@@ -1,6 +1,7 @@
 package br.com.transferr.core.model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -67,6 +69,9 @@ public class Driver  extends Entidade{
 	@Enumerated(EnumType.ORDINAL)
 	@org.hibernate.annotations.ColumnDefault("0")
 	private EnumTypeOfDriver typeOfDriver = EnumTypeOfDriver.DRIVER;
+	
+	@ManyToMany(mappedBy = "drivers",fetch=FetchType.EAGER)
+	Set<TourOption> tourOptions;
 	
 	public Grouping getGroup() {
 		return group;
@@ -163,6 +168,14 @@ public class Driver  extends Entidade{
 
 	public void setTypeId(TypeID typeId) {
 		this.typeId = typeId;
+	}
+
+	public Set<TourOption> getTourOptions() {
+		return tourOptions;
+	}
+
+	public void setTourOptions(Set<TourOption> tourOptions) {
+		this.tourOptions = tourOptions;
 	}
 	
 	
