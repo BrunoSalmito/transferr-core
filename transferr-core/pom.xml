@@ -12,7 +12,7 @@
  <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Versao que estamos usando no Spring -->
-		<spring.version>4.3.5.RELEASE</spring.version>
+		<spring.version>5.2.22.RELEASE</spring.version>
 		<json-simple.version>1.1.1</json-simple.version>
 	</properties>
 	<dependencies>
